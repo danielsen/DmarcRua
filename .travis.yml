@@ -1,10 +1,15 @@
 language: csharp
 mono: none
 dotnet: 2.0.0
+solution: DmarcRua.sln
 
 install:
- - dotnet restore
+ - nuget restore DmarcRua.sln
+ - nuget install NUnit.Runners -OutputDirectory testrunner
 
 script:
- - dotnet build
- - dotnet test DmarcRuaTests/DmarcRuaTests.csproj
+ - xbuild DmarcRua.sln /p:Configuration=Release
+ - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/DmarcRuaTests/netcoreapp2.0/DmarcRuaTests.dll
+ - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/DmarcRuaTests/net45/DmarcRuaTests.dll
+ - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/DmarcRuaTests/net461/DmarcRuaTests.dll
+ - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/DmarcRuaTests/net462/DmarcRuaTests.dll
