@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<feedback>
+  <record>
+    <row>
+      <source_ip>62.149.157.24</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>mail6.acme-company.net</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>mail6.acme-company.net</domain>
+        <result>neutral</result>
+      </dkim>
+      <spf>
+        <domain>mail6.acme-company.net</domain>
+        <result>softfail</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0"?>
+<feedback>
+  <report_metadata>
+    <org_name>Yahoo! Inc.</org_name>
+    <email>postmaster@dmarc.yahoo.com</email>
+    <report_id>1486092501.419151</report_id>
+    <date_range>
+      <begin>1485993600</begin>
+      <end>1486079999</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>acme-company.net</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>62.149.157.24</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>mail6.acme-company.net</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>mail6.acme-company.net</domain>
+        <result>neutral</result>
+      </dkim>
+      <spf>
+        <domain>mail6.acme-company.net</domain>
+        <result>softfail</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>
