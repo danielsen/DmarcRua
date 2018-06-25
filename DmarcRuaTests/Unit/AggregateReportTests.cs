@@ -26,7 +26,7 @@ using System.Reflection;
 using NUnit.Framework;
 using DmarcRua;
 
-namespace DmarcRuaTests.Unit
+namespace DmarcRua.Tests.Unit
 {
     [TestFixture]
     public class AggregateReportTests
@@ -35,7 +35,7 @@ namespace DmarcRuaTests.Unit
         public void should_validate_rua_report()
         {
             var assmebly = Assembly.GetExecutingAssembly();
-            var reportStream = assmebly.GetManifestResourceStream("DmarcRuaTests.Unit.SampleReport.xml");
+            var reportStream = assmebly.GetManifestResourceStream("DmarcRua.Tests.Unit.SampleReport.xml");
 
             var aggregate = new AggregateReport();
             aggregate.ReadAggregateReport(reportStream);
@@ -49,7 +49,7 @@ namespace DmarcRuaTests.Unit
         public void should_catch_invalid_report()
         {
             var assmebly = Assembly.GetExecutingAssembly();
-            var reportStream = assmebly.GetManifestResourceStream("DmarcRuaTests.Unit.InvalidReport.xml");
+            var reportStream = assmebly.GetManifestResourceStream("DmarcRua.Tests.Unit.InvalidReport.xml");
 
             var aggregate = new AggregateReport();
             aggregate.ReadAggregateReport(reportStream);

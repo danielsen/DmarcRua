@@ -10,7 +10,7 @@ install:
 
 script:
  - xbuild DmarcRua.sln /p:Configuration=Release
- - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/DmarcRuaTests/netcoreapp2.0/DmarcRuaTests.dll
- - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/DmarcRuaTests/net45/DmarcRuaTests.dll
- - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/DmarcRuaTests/net461/DmarcRuaTests.dll
- - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/DmarcRuaTests/net462/DmarcRuaTests.dll
+ - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRua.Tests/bin/Release/DmarcRuaTests/netcoreapp2.0/DmarcRuaTests.dll
+ - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRua.Tests/bin/Release/DmarcRuaTests/net45/DmarcRuaTests.dll
+ - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRua.Tests/bin/Release/DmarcRuaTests/net461/DmarcRuaTests.dll
+ - mono .testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRua.Tests/bin/Release/DmarcRuaTests/net462/DmarcRuaTests.dll

@@ -28,7 +28,7 @@ using System.Reflection;
 using NUnit.Framework;
 using DmarcRua;
 
-namespace DmarcRuaTests.Unit
+namespace DmarcRua.Tests.Unit
 {
     [TestFixture]
     public class AggregateReportExtensionTests
@@ -39,7 +39,7 @@ namespace DmarcRuaTests.Unit
         public void Setup()
         {
             var assmebly = Assembly.GetExecutingAssembly();
-            var reportStream = assmebly.GetManifestResourceStream("DmarcRuaTests.Unit.SampleReport.xml");
+            var reportStream = assmebly.GetManifestResourceStream("DmarcRua.Tests.Unit.SampleReport.xml");
 
             _ruaViaSampleReportXml = new AggregateReport(reportStream);
         }

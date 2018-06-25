@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DmarcRua", "DmarcRua\DmarcRua.csproj", "{8DA1E2B5-D3CE-4DA7-9406-794448D9394E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DmarcRuaTests", "DmarcRuaTests\DmarcRuaTests.csproj", "{1B9D8C41-01E2-4BBE-807B-93F297E24899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DmarcRua.Tests", "DmarcRuaTests\DmarcRua.Tests.csproj", "{1B9D8C41-01E2-4BBE-807B-93F297E24899}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
