@@ -12,7 +12,7 @@ install:
 
 script:
  - msbuild DmarcRua.sln /p:Configuration=Release
- - mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/netcoreapp2.0/DmarcRua.Tests.dll
  - mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/net45/DmarcRua.Tests.dll
  - mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/net461/DmarcRua.Tests.dll
  - mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./DmarcRuaTests/bin/Release/net462/DmarcRua.Tests.dll
+ - dotnet test DmarcRuaTest/DmarcRua.Tests.csproj -f netcoreapp2.0
