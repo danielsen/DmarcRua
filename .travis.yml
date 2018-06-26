@@ -7,6 +7,8 @@ install:
  - curl -L -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
  - mono nuget.exe restore DmarcRua.sln
  - mono nuget.exe install NUnit.Runners -OutputDirectory testrunner
+ - mono nuget.exe install Nunit3TestAdapter -OutputDirectory testrunner
+ - mono nuget.exe install Microsoft.NET.Test.Sdk -OutputDirectory testrunner
 
 script:
  - msbuild DmarcRua.sln /p:Configuration=Release
