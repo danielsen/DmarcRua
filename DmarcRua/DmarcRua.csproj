@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFrameworks>net45;net461;net462;netcoreapp2.0</TargetFrameworks>
+    <Authors>Dan Nielsen</Authors>
+    <Company />
+    <Copyright>Copyright 2018</Copyright>
+    <Description>DmarcRua is a simple .NET serializer for DMARC aggregate reports. Given 
+aggregate report XML, DmarcRua serializes the report into an object and
+provides some convenience functions for identifying and exploring DMARC
+failures.</Description>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/danielsen/DmarcRua/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/danielsen/DmarcRua</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/danielsen/DmarcRua</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>dmarc dmarc-reports dmarc-aggregate-reports dmarc-parser</PackageTags>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
     <!--<TargetFrameworks Condition="'$(OS)' != 'Windows_NT'">netcoreapp2.0</TargetFrameworks>-->
   </PropertyGroup>
 
