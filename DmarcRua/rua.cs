@@ -40,6 +40,9 @@ namespace DmarcRua
 
         [XmlElement("record", Form = XmlSchemaForm.Unqualified)]
         public RecordType[] Record { get; set; }
+        
+        [XmlElement("version", Form = XmlSchemaForm.Unqualified)]
+        public string Version { get; set; }
     }
 
     [Serializable]
@@ -82,6 +85,9 @@ namespace DmarcRua
 
         [XmlElement("result", Form = XmlSchemaForm.Unqualified)]
         public SpfResultType Result { get; set; }
+        
+        [XmlElement("scope", Form = XmlSchemaForm.Unqualified)]
+        public string Scope { get; set; }
     }
 
     [Serializable]
@@ -107,6 +113,9 @@ namespace DmarcRua
 
         [XmlElement("human_result", Form = XmlSchemaForm.Unqualified)]
         public string HumanResult { get; set; }
+        
+        [XmlElement("selector", Form = XmlSchemaForm.Unqualified)]
+        public string Selector { get; set; }
     }
 
     [Serializable]
@@ -139,6 +148,9 @@ namespace DmarcRua
 
         [XmlElement("header_from", Form = XmlSchemaForm.Unqualified)]
         public string HeaderFrom { get; set; }
+        
+        [XmlElement("envelope_from", Form = XmlSchemaForm.Unqualified)]
+        public string EnvelopeFrom { get; set; }
     }
 
     [Serializable]
@@ -240,6 +252,12 @@ namespace DmarcRua
 
         [XmlElement("pct", Form = XmlSchemaForm.Unqualified)]
         public string Percent { get; set; }
+        
+        [XmlElement("fo", Form = XmlSchemaForm.Unqualified)]
+        public string Fo { get; set; }
+        
+        [XmlElement("ri", Form = XmlSchemaForm.Unqualified)]
+        public int Ri { get; set; }
     }
 
     [Serializable]

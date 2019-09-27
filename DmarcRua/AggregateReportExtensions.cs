@@ -121,5 +121,21 @@ namespace DmarcRua
         {
             return aggregateReport.Feedback.Record.Where(x => x.Identifiers.HeaderFrom == fromHeader);
         }
+
+        public static RequestedReportingPolicy GetRequestedReportingPolicy(this AggregateReport aggregateReport)
+        {
+            var policy = RequestedReportingPolicy.All;
+
+            if (aggregateReport.Feedback.PolicyPublished.Fo.Contains("1"))
+                policy |= RequestedReportingPolicy.Any;
+
+            if (aggregateReport.Feedback.PolicyPublished.Fo.Contains("d"))
+                policy |= RequestedReportingPolicy.Dkim;
+
+            if (aggregateReport.Feedback.PolicyPublished.Fo.Contains("s"))
+                policy |= RequestedReportingPolicy.Spf;
+
+            return policy;
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net45;net461;net462;netcoreapp2.0</TargetFrameworks>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <!--<TargetFrameworks Condition="'$(OS)' != 'Windows_NT'">netcoreapp2.0</TargetFrameworks>-->
   </PropertyGroup>
 
@@ -13,6 +13,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Unit\InvalidReport.xml" />
     <EmbeddedResource Include="Unit\SampleReport.xml" />
+    <None Remove="Unit\GoogleGenerated.xml" />
+    <EmbeddedResource Include="Unit\GoogleGenerated.xml" />
   </ItemGroup>
 
   <ItemGroup>

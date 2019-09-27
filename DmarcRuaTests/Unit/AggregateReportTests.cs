@@ -56,5 +56,17 @@ namespace DmarcRua.Tests.Unit
 
             Assert.AreEqual(false, aggregate.ValidReport);
         }
+
+        [Test]
+        public void should_handle_ipv6_addresses_correctly()
+        {
+            var assmebly = Assembly.GetExecutingAssembly();
+            var reportStream = assmebly.GetManifestResourceStream("DmarcRua.Tests.Unit.GoogleGenerated.xml");
+
+            var aggregate = new AggregateReport();
+            aggregate.ReadAggregateReport(reportStream);
+
+            Assert.AreEqual(true, aggregate.ValidReport);
+        }
     }
 }
