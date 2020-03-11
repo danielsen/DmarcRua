@@ -1,6 +1,5 @@
 language: csharp
 mono: latest
-dotnet: 2.2.200
 solution: DmarcRua.sln
 
 install:
@@ -9,7 +8,3 @@ install:
  - mono nuget.exe install NUnit.Runners -OutputDirectory testrunner
  - mono nuget.exe install Nunit3TestAdapter -OutputDirectory testrunner
  - mono nuget.exe install Microsoft.NET.Test.Sdk -OutputDirectory testrunner
-
-script:
- - msbuild DmarcRua.sln /p:Configuration=Release
- - dotnet test DmarcRuaTests/DmarcRua.Tests.csproj -f netcoreapp2.0
