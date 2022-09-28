@@ -11,14 +11,14 @@
 
 <!-- Report generator metadata -->
 <xs:complexType name="ReportMetadataType">
-  <xs:sequence>
+  <xs:choice maxOccurs="unbounded">
     <xs:element name="org_name" type="xs:string" minOccurs="1"/>
     <xs:element name="email" type="xs:string" minOccurs="1"/>
     <xs:element name="extra_contact_info" type="xs:string" minOccurs="0"/>
     <xs:element name="report_id" type="xs:string" minOccurs="1"/>
     <xs:element name="date_range" type="DateRangeType" minOccurs="1"/>
     <xs:element name="error" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-  </xs:sequence>
+  </xs:choice>
 </xs:complexType>
 
 <!-- Alignment mode (relaxed or strict) for DKIM and SPF. -->
