@@ -2,7 +2,7 @@
 // Rua.cs
 // 
 // Author: Dan Nielsen (dnielsen@fastmail.fm)
-// Copyright (c) 2018 Dan Nielsen
+// Copyright (c) 2022 Dan Nielsen
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal

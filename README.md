@@ -14,9 +14,9 @@ failures.
 
 ### Packages
 
-Current Version: `1.0.0`
+Current Version: `1.1.3`
 
-Target Framework: `.NET 4.5`, `.NET 4.6` and up, `.NET Core 2`
+Target Framework: `netstandard2.0`
 
 ### Dependencies
 

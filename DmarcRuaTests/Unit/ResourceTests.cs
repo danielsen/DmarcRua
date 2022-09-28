@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace DmarcRua.Tests.Unit
 {
-    [TestFixture, Ignore("")]
+    [TestFixture, Ignore("Requires specific dev resources")]
     public class ResourceTests
     {
         private class Error
@@ -16,7 +16,7 @@ namespace DmarcRua.Tests.Unit
         }
 
         [Test]
-        public void should_verify_wll_known_resources()
+        public void should_verify_well_known_resources()
         {
             var validationErrors = new List<Error>();
             var xmlPath = Path.Combine("../", "../", "../", "../", "xml/");
