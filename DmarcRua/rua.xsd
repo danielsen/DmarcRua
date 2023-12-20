@@ -30,11 +30,17 @@
 </xs:simpleType>
 
 <!-- The policy actions specified by p and sp in the DMARC record. -->
+  <!-- ==============================================================
+  DN - 2023-12-21
+    Added empty string handling. Observed reports from Trustwave
+    MailMarshal sending empty <sp> tags in <policy_published>.
+  =============================================================== -->
 <xs:simpleType name="DispositionType">
   <xs:restriction base="xs:string">
     <xs:enumeration value="none"/>
     <xs:enumeration value="quarantine"/>
     <xs:enumeration value="reject"/>
+    <xs:enumeration value=""/>
   </xs:restriction>
 </xs:simpleType>
 

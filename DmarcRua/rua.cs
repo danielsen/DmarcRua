@@ -2,7 +2,7 @@
 // Rua.cs
 // 
 // Author: Dan Nielsen (dnielsen@fastmail.fm)
-// Copyright (c) 2022 Dan Nielsen
+// Copyright (c) 2023 Dan Nielsen
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -193,9 +193,10 @@ namespace DmarcRua
     [Serializable]
     [XmlType(Namespace="http://dmarc.org/dmarc-xml/0.1")]
     public enum DispositionType {
-        none,
-        quarantine,
-        reject
+        [XmlEnum("none")]none,
+        [XmlEnum("quarantine")]quarantine,
+        [XmlEnum("reject")]reject,
+        [XmlEnum("")]Default = none
     }
 
     [Serializable]

@@ -14,7 +14,7 @@ failures.
 
 ### Packages
 
-Current Version: `1.1.3`
+Current Version: `1.1.4`
 
 Target Framework: `netstandard2.0`
 
