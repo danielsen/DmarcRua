@@ -60,6 +60,8 @@
     <xs:element name="aspf" type="AlignmentType" minOccurs="0"/>
     <!-- The policy to apply to messages from the domain. -->
     <xs:element name="p" type="DispositionType"/>
+	<!-- The handling policy for non-existent subdomains-->
+	<xs:element name="np" type="DispositionType" minOccurs="0"/>
     <!-- The policy to apply to messages from subdomains. -->
     <xs:element name="sp" type="DispositionType" minOccurs="0"/>
     <!-- The percent of messages to which policy applies. -->
@@ -68,6 +70,14 @@
     <xs:element name="fo" type="xs:string" minOccurs="0"/>
     <!-- Defines the time in seconds between reports requested. -->
     <xs:element name="ri" type="xs:integer" minOccurs="0"/>
+	<!-- Defines the Reporting Formats (Unknown Data Type) -->
+	<xs:element name="rf" type="xs:string" minOccurs="0"/>
+	<!-- Defines the Reporting URI for Aggregate Data. -->
+	<xs:element name="rua" type="xs:string" minOccurs="0"/>
+	<!-- Defines the Reporting URI for Failure Data. -->
+	<xs:element name="ruf" type="xs:string" minOccurs="0"/>
+	<!-- Defines the Reporting URI for Failure Data. -->
+	<xs:element name="v" type="xs:string" minOccurs="0"/>
   </xs:all>
 </xs:complexType>
 

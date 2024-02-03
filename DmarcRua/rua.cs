@@ -247,6 +247,8 @@ namespace DmarcRua
 
         [XmlElement("p", Form = XmlSchemaForm.Unqualified)]
         public DispositionType P { get; set; }
+        [XmlElement("np", Form = XmlSchemaForm.Unqualified)]
+        public DispositionType NP { get; set; }
 
         [XmlElement("sp", Form = XmlSchemaForm.Unqualified)]
         public DispositionType Sp { get; set; }
@@ -259,6 +261,14 @@ namespace DmarcRua
         
         [XmlElement("ri", Form = XmlSchemaForm.Unqualified)]
         public int Ri { get; set; }
+        [XmlElement("rua", Form = XmlSchemaForm.Unqualified)]
+        public string RUA { get; set; }
+        [XmlElement("ruf", Form = XmlSchemaForm.Unqualified)]
+        public string RUF { get; set; }
+        [XmlElement("rf", Form = XmlSchemaForm.Unqualified)]
+        public string RF { get; set; }
+        [XmlElement("v", Form = XmlSchemaForm.Unqualified)]
+        public string V { get; set; }
     }
 
     [Serializable]
