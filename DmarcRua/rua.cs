@@ -99,7 +99,8 @@ namespace DmarcRua
         fail,
         softfail,
         temperror,
-        permerror
+        permerror,
+        [XmlEnum("")] Default = none
     }
 
     [Serializable]
@@ -127,7 +128,8 @@ namespace DmarcRua
         policy,
         neutral,
         temperror,
-        permerror
+        permerror,
+        [XmlEnum("")] Default = none
     }
 
     [Serializable]
@@ -171,7 +173,9 @@ namespace DmarcRua
         trusted_forwarder,
         mailing_list,
         local_policy,
-        other
+        other,
+        none,
+        [XmlEnum("")] Default = none
     }
 
     [Serializable]
@@ -203,7 +207,9 @@ namespace DmarcRua
     [XmlType(Namespace="http://dmarc.org/dmarc-xml/0.1")]
     public enum DMARCResultType {
         pass,
-        fail
+        fail,
+        none,
+        [XmlEnum("")] Default = none
     }
 
     [Serializable]
