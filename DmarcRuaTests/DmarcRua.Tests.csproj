@@ -5,12 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Unit\DocomoGenerated.xml" />
-    <None Remove="Unit\InvalidReport.xml" />
-    <None Remove="Unit\SampleReport.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Unit\InvalidReport.xml" />
     <EmbeddedResource Include="Unit\SampleReport.xml" />
     <EmbeddedResource Include="Unit\GoogleGenerated.xml" />

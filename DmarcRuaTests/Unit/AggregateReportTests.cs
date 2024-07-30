@@ -70,7 +70,7 @@ namespace DmarcRua.Tests.Unit
         }
 
         [Test]
-        public void should_catch_poorly_formatted()
+        public void should_handle_poorly_formatted_report()
         {
             var assmebly = Assembly.GetExecutingAssembly();
             var reportStream = assmebly.GetManifestResourceStream("DmarcRua.Tests.Unit.KddiGenerated.xml");
@@ -82,7 +82,7 @@ namespace DmarcRua.Tests.Unit
         }
 
         [Test]
-        public void should_catch_another_poorly_formatted()
+        public void should_handle_another_poorly_formatted_report()
         {
             var assmebly = Assembly.GetExecutingAssembly();
             var reportStream = assmebly.GetManifestResourceStream("DmarcRua.Tests.Unit.DocomoGenerated.xml");
