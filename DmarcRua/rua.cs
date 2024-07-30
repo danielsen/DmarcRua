@@ -99,7 +99,8 @@ namespace DmarcRua
         fail,
         softfail,
         temperror,
-        permerror
+        permerror,
+        [XmlEnum("hardfail")] Hardfail = fail
     }
 
     [Serializable]
@@ -171,7 +172,8 @@ namespace DmarcRua
         trusted_forwarder,
         mailing_list,
         local_policy,
-        other
+        other,
+        [XmlEnum("")] Default = other
     }
 
     [Serializable]

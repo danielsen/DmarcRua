@@ -68,5 +68,29 @@ namespace DmarcRua.Tests.Unit
 
             Assert.AreEqual(true, aggregate.ValidReport);
         }
+
+        [Test]
+        public void should_catch_poorly_formatted()
+        {
+            var assmebly = Assembly.GetExecutingAssembly();
+            var reportStream = assmebly.GetManifestResourceStream("DmarcRua.Tests.Unit.KddiGenerated.xml");
+
+            var aggregate = new AggregateReport();
+            aggregate.ReadAggregateReport(reportStream);
+
+            Assert.AreEqual(true, aggregate.ValidReport);
+        }
+
+        [Test]
+        public void should_catch_another_poorly_formatted()
+        {
+            var assmebly = Assembly.GetExecutingAssembly();
+            var reportStream = assmebly.GetManifestResourceStream("DmarcRua.Tests.Unit.DocomoGenerated.xml");
+
+            var aggregate = new AggregateReport();
+            aggregate.ReadAggregateReport(reportStream);
+
+            Assert.AreEqual(true, aggregate.ValidReport);
+        }
     }
 }

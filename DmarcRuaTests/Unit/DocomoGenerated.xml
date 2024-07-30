@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feedback>
+	<report_metadata>
+		<org_name>docomo.ne.jp</org_name>
+		<email>reporting@dmarc25.jp</email>
+		<report_id>0b345b52fe5fb3b7134eb27764cabd79</report_id>
+		<date_range>
+			<begin>1705363200</begin>
+			<end>1705449599</end>
+		</date_range>
+	</report_metadata>
+	<policy_published>
+		<adkim>r</adkim>
+		<domain>domain.tld</domain>
+		<aspf>r</aspf>
+		<p>reject</p>
+		<pct>100</pct>
+		<sp>reject</sp>
+	</policy_published>
+	<record>
+		<row>
+			<source_ip>175.173.163.47</source_ip>
+			<count>1</count>
+			<policy_evaluated>
+				<disposition>reject</disposition>
+				<dkim>fail</dkim>
+				<spf>fail</spf>
+			</policy_evaluated>
+		</row>
+		<identifiers>
+			<header_from>domain.tld</header_from>
+		</identifiers>
+		<auth_results>
+			<spf>
+				<domain>domain.tld</domain>
+				<result>hardfail</result>
+			</spf>
+		</auth_results>
+	</record>
+</feedback>
