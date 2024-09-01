@@ -22,9 +22,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System.Reflection;
 using NUnit.Framework;
-using DmarcRua;
+using System.Linq;
+using System.Reflection;
 
 namespace DmarcRua.Tests.Unit
 {
@@ -67,6 +67,22 @@ namespace DmarcRua.Tests.Unit
             aggregate.ReadAggregateReport(reportStream);
 
             Assert.AreEqual(true, aggregate.ValidReport);
+        }
+
+        [Test]
+        public void TestAllFiles()
+        {
+            var Files = System.IO.Directory.GetFiles("SampleReports", "*.xml");
+            foreach (var File in Files)
+            {
+                var XMLStream = System.IO.File.OpenRead(File);
+                var aggregate = new AggregateReport(XMLStream);
+                if (!aggregate.ValidReport)
+                {
+                    Assert.Fail(aggregate.Errors.First().Message);
+                }
+                XMLStream.Close();
+            }
         }
     }
 }

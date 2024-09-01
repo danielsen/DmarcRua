@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
 	<!-- The time range in UTC covered by messages in this report, specified in seconds since epoch. -->
@@ -44,12 +44,35 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<!-- The DMARC policy that applied to the messages in this report. -->
+
+    <!-- The methods used to discovery the policy used during
+     evaluation.  The available values are "psl" and "treewalk",
+     where "psl" is the method from [@?RFC7489] and the "treewalk"
+     is described in [@?RefNeeded]. -->
+    <xs:simpleType name="DiscoveryType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="psl"/>
+            <xs:enumeration value="treewalk"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- Values for Testing mode attached to Policy -->
+        <xs:simpleType name="TestingType">
+         <xs:restriction base="xs:string">
+          <xs:enumeration value="n"/>
+          <xs:enumeration value="y"/>
+         </xs:restriction>
+        </xs:simpleType>
+
+
+    <!-- The DMARC policy that applied to the messages in this report. -->
 	<!-- ==============================================================
   DN - 2019-09-26 
     Made "adkim" and "aspf" optional. Observed to be missing in
     reports from fastmail.com when domain uses default policies.
   ============================================================== -->
+    
+    
 	<xs:complexType name="PolicyPublishedType">
 		<xs:all>
 			<!-- The domain at which the DMARC record was found. -->
@@ -78,6 +101,10 @@
 			<xs:element name="ruf" type="xs:string" minOccurs="0"/>
 			<!-- Defines the Reporting URI for Failure Data. -->
 			<xs:element name="v" type="xs:string" minOccurs="0"/>
+            <!-- Method used to find/obtain DMARC policy -->
+            <xs:element name="discovery_method" type="DiscoveryType" minOccurs="0" maxOccurs="1"/>
+            <!-- Whether testing mode was declared in the DMARC Record -->
+            <xs:element name="testing" type="TestingType" minOccurs="0" maxOccurs="1"/>
 		</xs:all>
 	</xs:complexType>
 

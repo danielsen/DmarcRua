@@ -22,11 +22,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using NUnit.Framework;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using NUnit.Framework;
-using DmarcRua;
 
 namespace DmarcRua.Tests.Unit
 {
@@ -47,7 +46,7 @@ namespace DmarcRua.Tests.Unit
         [Test]
         public void should_get_enumeration_of_failures()
         {
-            Assert.AreEqual(1, _ruaViaSampleReportXml.GetFailureRecords().Count()); 
+            Assert.AreEqual(1, _ruaViaSampleReportXml.GetFailureRecords().Count());
         }
 
         [Test]

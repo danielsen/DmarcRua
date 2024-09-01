@@ -22,6 +22,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,6 +42,7 @@ namespace DmarcRua
         /// Embedded schema use for validation of supplied reports.
         /// </summary>
         private const string SchemaName = "DmarcRua.rua.xsd";
+        private const string V2SchemaName = "DmarcRua.DmarcV2.xsd";
 
         /// <summary>
         /// Inidicates if the serialized report has an XML validation warnings or errors.
@@ -108,7 +110,14 @@ namespace DmarcRua
                     _xmlReaderSettings.Schemas.Add(null, schemaReader);
                 }
             }
-            _xmlReaderSettings.ValidationEventHandler += (sender, args) => { ValidationEventCallback(sender, args); }; 
+            using (var schemaStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(V2SchemaName))
+            {
+                using (var schemaReader = XmlReader.Create(schemaStream))
+                {
+                    _xmlReaderSettings.Schemas.Add(null, schemaReader);
+                }
+            }
+            _xmlReaderSettings.ValidationEventHandler += (sender, args) => { ValidationEventCallback(sender, args); };
         }
 
         /// <summary>
@@ -153,11 +162,33 @@ namespace DmarcRua
         /// <param name="ruaStream">A stream containing the RUA report to serialize.</param>
         public void ReadAggregateReport(Stream ruaStream)
         {
+            XmlSerializer serializerV1 = new XmlSerializer(typeof(Feedback), "");
+            XmlSerializer serializerV2 = new XmlSerializer(typeof(Feedback), "urn:ietf:params:xml:ns:dmarc-2.0");
+
             using (XmlReader ruaReader = XmlReader.Create(ruaStream, _xmlReaderSettings))
             {
-                var serializer = new XmlSerializer(typeof(Feedback));
-
-                Feedback = (Feedback) serializer.Deserialize(ruaReader);
+                try
+                {
+                    // Try deserializing with V2 namespace first
+                    Feedback = (Feedback)serializerV2.Deserialize(ruaReader);
+                }
+                catch (InvalidOperationException)
+                {
+                    // If V2 deserialization fails, try V1
+                    ruaStream.Position = 0; // Reset stream position
+                    using (XmlReader retryReader = XmlReader.Create(ruaStream, _xmlReaderSettings))
+                    {
+                        try
+                        {
+                            Feedback = (Feedback)serializerV1.Deserialize(retryReader);
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            // If both V1 and V2 deserialization fail, throw an exception
+                            throw new XmlException("Failed to deserialize DMARC report. It may not be a valid V1 or V2 report.", ex);
+                        }
+                    }
+                }
             }
         }
     }

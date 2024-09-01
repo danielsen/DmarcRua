@@ -1,8 +1,8 @@
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using NUnit.Framework;
 
 namespace DmarcRua.Tests.Unit
 {
@@ -36,7 +36,7 @@ namespace DmarcRua.Tests.Unit
                         var err = new Error
                         {
                             FileName = file,
-                            ErrorList = new List<string>{ex.Message}
+                            ErrorList = new List<string> { ex.Message }
                         };
                         validationErrors.Add(err);
                     }

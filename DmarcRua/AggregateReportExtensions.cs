@@ -83,7 +83,7 @@ namespace DmarcRua
             var failedRecords = aggregateReport.GetFailureRecords();
 
             return failedRecords.GroupBy(r => r.Row.SourceIp, r => r.Row.Count,
-                (s, c) => new SourceIpSummary {IpAddress = IPAddress.Parse(s), Count = c.Sum()});
+                (s, c) => new SourceIpSummary { IpAddress = IPAddress.Parse(s), Count = c.Sum() });
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace DmarcRua
             var failedRecords = aggregateReport.GetFailureRecords();
 
             return failedRecords.GroupBy(r => r.Identifiers.HeaderFrom, r => r.Row.Count,
-                (h, c) => new FromHeaderSummary {HeaderFrom = h, Count = c.Sum()});
+                (h, c) => new FromHeaderSummary { HeaderFrom = h, Count = c.Sum() });
         }
 
         /// <summary>
