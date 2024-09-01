@@ -68,6 +68,16 @@ namespace DmarcRua.Tests.Unit
 
             Assert.AreEqual(true, aggregate.ValidReport);
         }
+        [Test]
+        public void TestDmarcV2Handling()
+        {
+            var XMLStream = System.IO.File.OpenRead("SampleReports\\TestFeedback10.xml");
+
+            var aggregate = new AggregateReport();
+            aggregate.ReadAggregateReport(XMLStream);
+            Assert.IsTrue(aggregate.Feedback is not null);
+            Assert.AreEqual(true, aggregate.ValidReport);
+        }
 
         [Test]
         public void TestAllFiles()

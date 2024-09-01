@@ -30,6 +30,7 @@ using System.Reflection;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using DmarcRuaV2.Helpers;
 
 namespace DmarcRua
 {
@@ -163,14 +164,15 @@ namespace DmarcRua
         public void ReadAggregateReport(Stream ruaStream)
         {
             XmlSerializer serializerV1 = new XmlSerializer(typeof(Feedback), "");
-            XmlSerializer serializerV2 = new XmlSerializer(typeof(Feedback), "urn:ietf:params:xml:ns:dmarc-2.0");
+            XmlSerializer serializerV2 = new XmlSerializer(typeof(DmarcRuaV2.Feedback), "urn:ietf:params:xml:ns:dmarc-2.0");
 
             using (XmlReader ruaReader = XmlReader.Create(ruaStream, _xmlReaderSettings))
             {
                 try
                 {
                     // Try deserializing with V2 namespace first
-                    Feedback = (Feedback)serializerV2.Deserialize(ruaReader);
+                    var tmpFeedback = (DmarcRuaV2.Feedback)serializerV2.Deserialize(ruaReader);
+                    Feedback = tmpFeedback.ConvertV2ToV1();
                 }
                 catch (InvalidOperationException)
                 {
@@ -191,5 +193,8 @@ namespace DmarcRua
                 }
             }
         }
+
     }
+
+
 }
