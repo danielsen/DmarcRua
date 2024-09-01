@@ -105,6 +105,7 @@ namespace DmarcRua
         softfail,
         temperror,
         permerror,
+        [XmlEnum("hardfail")] Hardfail = fail,
         [XmlEnum("")] Default = none
     }
 
@@ -136,6 +137,7 @@ namespace DmarcRua
         neutral,
         temperror,
         permerror,
+        [XmlEnum("hardfail")] Hardfail = fail,
         [XmlEnum("")] Default = none
     }
 

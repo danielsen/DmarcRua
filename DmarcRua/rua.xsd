@@ -153,6 +153,7 @@ trusted_forwarder:  Message authentication failure was anticipated by
 			<xs:enumeration value="mailing_list"/>
 			<xs:enumeration value="local_policy"/>
 			<xs:enumeration value="other"/>
+			<xs:enumeration value=""/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -211,6 +212,7 @@ trusted_forwarder:  Message authentication failure was anticipated by
 			<xs:enumeration value="neutral"/>
 			<xs:enumeration value="temperror"/>
 			<xs:enumeration value="permerror"/>
+			<xs:enumeration value="hardfail"/>
 			<xs:enumeration value=""/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -240,6 +242,7 @@ trusted_forwarder:  Message authentication failure was anticipated by
 			<xs:enumeration value="temperror"/>
 			<!-- "PermError" commonly implemented as "error" -->
 			<xs:enumeration value="permerror"/>
+			<xs:enumeration value="hardfail"/>
 			<xs:enumeration value=""/>
 		</xs:restriction>
 	</xs:simpleType>
