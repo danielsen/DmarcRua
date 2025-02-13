@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>emailsrvr.com</org_name>
+    <email>dmarc_reports@emailsrvr.com</email>
+    <extra_contact_info>http://emailsrvr.com</extra_contact_info>
+    <report_id>ab8fbfb1-b59d-4285-b1f0-98654280da49</report_id>
+    <date_range>
+      <begin>1708473600</begin>
+      <end>1708560000</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>58a9e7cfb8b94b95b35feee3b6c77f07.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+   <row>
+     <source_ip>127.0.0.1</source_ip>
+     <count>5</count>
+     <policy_evaluated>
+       <disposition>none</disposition>
+       <dkim>pass</dkim>
+       <spf>pass</spf>
+     </policy_evaluated>
+   </row>
+   <identifiers>
+     <header_from>58a9e7cfb8b94b95b35feee3b6c77f07.com</header_from>
+   </identifiers>
+   <auth_results>
+     <spf>
+       <domain>58a9e7cfb8b94b95b35feee3b6c77f07.com</domain>
+       <result>pass</result>
+     </spf>
+     <dkim>
+       <domain>58a9e7cfb8b94b95b35feee3b6c77f07.com</domain>
+       <result>pass</result>
+     </dkim>
+   </auth_results>
+  </record>
+</feedback>

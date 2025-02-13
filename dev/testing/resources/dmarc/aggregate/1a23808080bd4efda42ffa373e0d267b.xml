@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>GoDaddy.com</org_name>
+    <email>&lt;dmarcreports@secureserver.net&gt;</email>
+    <report_id>1a23808080bd4efda42ffa373e0d267b.com-1709332792</report_id>
+    <date_range>
+      <begin>1709212812</begin>
+      <end>1709212812</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>1a23808080bd4efda42ffa373e0d267b.com</domain>
+    <adkim>s</adkim>
+    <aspf>s</aspf>
+    <p>quarantine</p>
+    <sp>quarantine</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>pass</dkim>
+        <spf>pass</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>1a23808080bd4efda42ffa373e0d267b.com</header_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>spmailtechnolo.com</domain>
+        <result>pass</result>
+      </spf>
+      <dkim>
+        <domain>1a23808080bd4efda42ffa373e0d267b.com</domain>
+        <result>pass</result>
+      </dkim>
+    </auth_results>
+  </record>
+</feedback>

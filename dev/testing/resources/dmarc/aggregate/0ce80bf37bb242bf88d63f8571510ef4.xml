@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+ <report_metadata>
+  <org_name>firstcitizensnational.com</org_name>
+  <email>noreply@firstcitizensnational.com</email>
+  <report_id>0ce80bf37bb242bf88d63f8571510ef4.com:165d40100e1557</report_id>
+  <date_range>
+   <begin>1708300800</begin>
+   <end>1708387199</end>
+  </date_range>
+ </report_metadata>
+ <policy_published>
+  <domain>0ce80bf37bb242bf88d63f8571510ef4.com</domain>
+  <adkim>r</adkim>
+  <aspf>r</aspf>
+  <p>none</p>
+  <pct>100</pct>
+ </policy_published>
+ <record>
+  <row>
+   <source_ip>127.0.0.1</source_ip>
+   <count>1</count>
+   <policy_evaluated>
+    <disposition>none</disposition>
+    <dkim>pass</dkim>
+    <spf>pass</spf>
+   </policy_evaluated>
+  </row>
+  <identifiers>
+   <header_from>0ce80bf37bb242bf88d63f8571510ef4.com</header_from>
+   <envelope_from>0ce80bf37bb242bf88d63f8571510ef4.com</envelope_from>
+  </identifiers>
+  <auth_results>
+   <spf>
+    <domain>0ce80bf37bb242bf88d63f8571510ef4.com</domain>
+    <result>pass</result>
+   </spf>
+   <dkim>
+    <domain>0ce80bf37bb242bf88d63f8571510ef4.com</domain>
+    <result>pass</result>
+   </dkim>
+  </auth_results>
+ </record>
+</feedback>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feedback>
+  <report_metadata>
+    <org_name>Mimecast</org_name>
+    <email>no-reply@au-1.mimecastreport.com</email>
+    <extra_contact_info>https://community.mimecast.com/s/knowledge</extra_contact_info>
+    <report_id>1ba74ac2e9514ca51c5df7c6032fceb6a994a61e32a6cfd7ed61012ca9ee800e</report_id>
+    <date_range>
+      <begin>1708905600</begin>
+      <end>1708991999</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>a4cd475f67a74a3984d69ed3c6dc9b13.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>pass</dkim>
+        <spf>pass</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>a4cd475f67a74a3984d69ed3c6dc9b13.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>a4cd475f67a74a3984d69ed3c6dc9b13.com</domain>
+        <selector>20211102-v1ln2anq</selector>
+        <result>pass</result>
+        <human_result/>
+      </dkim>
+      <spf>
+        <domain>a4cd475f67a74a3984d69ed3c6dc9b13.com</domain>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

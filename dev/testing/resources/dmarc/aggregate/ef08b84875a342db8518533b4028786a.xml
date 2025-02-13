@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<feedback>
+  <version>1.0</version>
+  <report_metadata>
+    <org_name>legnica.eu</org_name>
+    <email>dmarc@legnica.eu</email>
+    <extra_contact_info>Urzad Miasta Legnica</extra_contact_info>
+    <report_id>abb7307c86fb46de8b96a0501a585c18</report_id>
+    <date_range>
+      <begin>1708041600</begin>
+      <end>1708127999</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>ef08b84875a342db8518533b4028786a.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>reject</p>
+    <sp>reject</sp>
+    <pct>100</pct>
+    <fo>0</fo>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>reject</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <envelope_from>ef08b84875a342db8518533b4028786a.com</envelope_from>
+      <header_from>ef08b84875a342db8518533b4028786a.com</header_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>ef08b84875a342db8518533b4028786a.com</domain>
+        <scope>mfrom</scope>
+        <result>none</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+ <report_metadata>
+  <org_name>theguarantybank.com</org_name>
+  <email>noreply@theguarantybank.com</email>
+  <report_id>ada7cd8692294e849e9ac58ff16a7bae.com:165d6ab84db4e6</report_id>
+  <date_range>
+   <begin>1708473600</begin>
+   <end>1708559999</end>
+  </date_range>
+ </report_metadata>
+ <policy_published>
+  <domain>ada7cd8692294e849e9ac58ff16a7bae.com</domain>
+  <adkim>r</adkim>
+  <aspf>r</aspf>
+  <p>none</p>
+  <pct>100</pct>
+ </policy_published>
+ <record>
+  <row>
+   <source_ip>127.0.0.1</source_ip>
+   <count>1</count>
+   <policy_evaluated>
+    <disposition>none</disposition>
+    <dkim>pass</dkim>
+    <spf>pass</spf>
+   </policy_evaluated>
+  </row>
+  <identifiers>
+   <header_from>ada7cd8692294e849e9ac58ff16a7bae.com</header_from>
+   <envelope_from>ada7cd8692294e849e9ac58ff16a7bae.com</envelope_from>
+  </identifiers>
+  <auth_results>
+   <spf>
+    <domain>ada7cd8692294e849e9ac58ff16a7bae.com</domain>
+    <result>pass</result>
+   </spf>
+   <dkim>
+    <domain>ada7cd8692294e849e9ac58ff16a7bae.com</domain>
+    <result>pass</result>
+   </dkim>
+  </auth_results>
+ </record>
+</feedback>

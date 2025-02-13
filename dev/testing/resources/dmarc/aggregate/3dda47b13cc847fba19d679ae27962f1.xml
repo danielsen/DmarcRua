@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+    <report_metadata>
+        <org_name>infomaniak.com</org_name>
+         <email>dmarc@infomaniak.com</email>
+         <report_id>3dda47b13cc847fba19d679ae27962f1.com:1708740001</report_id>
+         <date_range>
+         <begin>1708642800</begin>
+         <end>1708729200</end>
+         </date_range>
+    </report_metadata>
+    <policy_published>
+        <domain>3dda47b13cc847fba19d679ae27962f1.com</domain>
+        <adkim>r</adkim>
+        <aspf>r</aspf>
+        <p>none</p>
+        <sp>none</sp>
+        <pct>100</pct>
+    </policy_published>
+    <record>
+        <row>
+            <source_ip>127.0.0.1</source_ip>
+            <count>1</count>
+            <policy_evaluated>
+                <disposition>none</disposition>
+                <dkim>pass</dkim>
+                <spf>fail</spf>
+                <reason>
+                    <type>local_policy</type>
+                    <comment>arc=fail as[2].d=google.com as[2].s=arc-20160816 as[1].d=google.com as[1].s=arc-20160816</comment>
+                </reason>
+            </policy_evaluated>
+        </row>
+        <identifiers>
+            <header_from>3dda47b13cc847fba19d679ae27962f1.com</header_from>
+        </identifiers>
+        <auth_results>
+            <spf>
+                <domain>madeinfrancebox-b2b.fr</domain>
+                <result>pass</result>
+            </spf>
+            <dkim>
+                <domain>3dda47b13cc847fba19d679ae27962f1.com</domain>
+                <selector>dkimkey</selector>
+                <result>pass</result>
+            </dkim>
+        </auth_results>
+    </record>
+</feedback>

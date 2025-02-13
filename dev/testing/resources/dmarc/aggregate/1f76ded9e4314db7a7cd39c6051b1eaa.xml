@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <version>1.0</version>
+  <report_metadata>
+    <org_name>mx2.action.pl</org_name>
+    <email>MAILER-DAEMON@mx2.action.pl</email>
+    <extra_contact_info></extra_contact_info>
+    <report_id>7757d2$c6a47ae=5430262cfb37c284@mx2.action.pl</report_id>
+    <date_range>
+      <begin>1708210802</begin>
+      <end>1708297202</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>1f76ded9e4314db7a7cd39c6051b1eaa.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>reject</p>
+    <sp>reject</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>2</count>
+      <policy_evaluated>
+        <disposition>reject</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>1f76ded9e4314db7a7cd39c6051b1eaa.com</header_from>
+      <envelope_from>1f76ded9e4314db7a7cd39c6051b1eaa.com</envelope_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>1f76ded9e4314db7a7cd39c6051b1eaa.com</domain>
+        <scope>mfrom</scope>
+        <result>none</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>emailsrvr.com</org_name>
+    <email>dmarc_reports@emailsrvr.com</email>
+    <extra_contact_info>http://emailsrvr.com</extra_contact_info>
+    <report_id>9d1c34c2-eba1-48a0-80c5-f99fcdcfd522</report_id>
+    <date_range>
+      <begin>1707955200</begin>
+      <end>1708041600</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>565f6af0706f4b768d6c971fa9c275ed.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+   <row>
+     <source_ip>127.0.0.1</source_ip>
+     <count>1</count>
+     <policy_evaluated>
+       <disposition>none</disposition>
+       <dkim>fail</dkim>
+       <spf>fail</spf>
+     </policy_evaluated>
+   </row>
+   <identifiers>
+     <header_from>565f6af0706f4b768d6c971fa9c275ed.com</header_from>
+   </identifiers>
+   <auth_results>
+     <spf>
+       <domain>x.fw-mail.com</domain>
+       <result>pass</result>
+     </spf>
+     <dkim>
+       <domain>fw-mail.com</domain>
+       <result>pass</result>
+     </dkim>
+   </auth_results>
+  </record>
+</feedback>

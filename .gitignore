@@ -261,4 +261,4 @@ __pycache__/
 *.pyc
 
 # Testing resources
-xml/
+**/*.runsettings
