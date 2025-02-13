@@ -221,7 +221,8 @@ namespace DmarcRua
         [XmlEnum("trusted_forwarded")] TrustedForwarder,
         [XmlEnum("mailing_list")] MailingList,
         [XmlEnum("local_policy")] LocalPolicy,
-        [XmlEnum("other")] Other
+        [XmlEnum("other")] Other,
+        [XmlEnum("")] None
     }
 
     [Serializable]

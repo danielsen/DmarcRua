@@ -87,7 +87,7 @@
             <!-- The policy to apply to messages from subdomains. -->
             <xs:element name="sp" type="DispositionType" minOccurs="0"/>
             <!-- The percent of messages to which policy applies. -->
-            <xs:element name="pct" type="xs:integer"/>
+            <xs:element name="pct" type="xs:integer" minOccurs="0"/>
             <!-- Defines the error reporting policy. -->
             <xs:element name="fo" type="xs:string" minOccurs="0"/>
             <!-- Defines the time in seconds between reports requested. -->
@@ -143,6 +143,10 @@
        known and trusted forwarders.
     ============================================================== -->
 
+    <!-- ==============================================================
+    2025-02-13
+      Added empty string value. Observed in reports from kddi.com
+    ============================================================== -->
     <xs:simpleType name="PolicyOverrideType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="forwarded"/>
@@ -151,10 +155,10 @@
             <xs:enumeration value="mailing_list"/>
             <xs:enumeration value="local_policy"/>
             <xs:enumeration value="other"/>
+            <xs:enumeration value=""/>
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- How do we allow report generators to include new classes of override reasons if they want to be more specific than "other"? -->
     <xs:complexType name="PolicyOverrideReason">
         <xs:all>
             <xs:element name="type" type="PolicyOverrideType"/>
