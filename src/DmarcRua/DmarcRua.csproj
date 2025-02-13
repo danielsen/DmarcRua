@@ -40,4 +40,8 @@ failures.</Description>
     <EmbeddedResource Include="rua.xsd" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="9.0.2" />
+  </ItemGroup>
+
 </Project>

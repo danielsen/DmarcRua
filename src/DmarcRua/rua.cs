@@ -24,9 +24,11 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+
 
 namespace DmarcRua
 {
@@ -36,22 +38,28 @@ namespace DmarcRua
     public class Feedback
     {
         [XmlElement("report_metadata", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("report_metadata")]
         public ReportMetadataType ReportMetadata { get; set; }
 
         [XmlElement("policy_published", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("policy_published")]
         public PolicyPublishedType PolicyPublished { get; set; }
 
         [XmlElement("record", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("record")]
         public RecordType[] Record { get; set; }
 
         [XmlElement("version", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("version")]
         public string Version { get; set; }
-        
+
         [XmlElement("extension", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("extension")]
         public ExtensionType Extension { get; set; }
     }
 
     [Serializable]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DiscoveryType
     {
         [XmlEnum("psl")] Psl,
@@ -59,6 +67,7 @@ namespace DmarcRua
     }
 
     [Serializable]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum TestingType
     {
         [XmlEnum("n")] No,
@@ -70,21 +79,27 @@ namespace DmarcRua
     public class ReportMetadataType
     {
         [XmlElement("org_name", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("org_name")]
         public string OrgName { get; set; }
 
         [XmlElement("email", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
 
         [XmlElement("extra_contact_info", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("extra_contact_info")]
         public string ExtraContactInfo { get; set; }
 
         [XmlElement("report_id", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("report_id")]
         public string ReportId { get; set; }
 
         [XmlElement("date_range", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("date_range")]
         public DateRangeType DateRange { get; set; }
 
         [XmlElement("error", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("error")]
         public string[] Error { get; set; }
     }
 
@@ -93,9 +108,11 @@ namespace DmarcRua
     public class DateRangeType
     {
         [XmlElement("begin", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("begin")]
         public long Begin { get; set; }
 
         [XmlElement("end", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("end")]
         public long End { get; set; }
     }
 
@@ -110,20 +127,25 @@ namespace DmarcRua
     public class SpfAuthResultType
     {
         [XmlElement("domain", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("domain")]
         public string Domain { get; set; }
 
         [XmlElement("result", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("result")]
         public SpfResultType Result { get; set; }
 
         [XmlElement("scope", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("scope")]
         public SpfDomainScope? Scope { get; set; }
 
         [XmlElement("human_result", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("human_result")]
         public string HumanResult { get; set; }
     }
 
     [Serializable]
     [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum SpfResultType
     {
         [XmlEnum("none")] None,
@@ -140,26 +162,29 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
-    // ReSharper disable once InconsistentNaming
+    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]    
     public class DKIMAuthResultType
     {
         [XmlElement("domain", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("domain")]
         public string Domain { get; set; }
 
         [XmlElement("result", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("result")]
         public DKIMResultType Result { get; set; }
 
         [XmlElement("human_result", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("human_result")]
         public string HumanResult { get; set; }
 
         [XmlElement("selector", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("selector")]
         public string Selector { get; set; }
     }
 
     [Serializable]
     [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
-    // ReSharper disable once InconsistentNaming
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DKIMResultType
     {
         [XmlEnum("none")] None,
@@ -181,9 +206,11 @@ namespace DmarcRua
     public class AuthResultType
     {
         [XmlElement("dkim", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("dkim")]
         public DKIMAuthResultType[] Dkim { get; set; }
 
         [XmlElement("spf", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("spf")]
         public SpfAuthResultType[] Spf { get; set; }
     }
 
@@ -192,12 +219,15 @@ namespace DmarcRua
     public class IdentifierType
     {
         [XmlElement("envelope_to", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("envelope_to")]
         public string EnvelopeTo { get; set; }
 
         [XmlElement("header_from", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("header_from")]
         public string HeaderFrom { get; set; }
 
         [XmlElement("envelope_from", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("envelope_from")]
         public string EnvelopeFrom { get; set; }
     }
 
@@ -206,14 +236,17 @@ namespace DmarcRua
     public class PolicyOverrideReason
     {
         [XmlElement("type", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("type")]
         public PolicyOverrideType Type { get; set; }
 
         [XmlElement("comment", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("comment")]
         public string Comment { get; set; }
     }
 
     [Serializable]
     [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum PolicyOverrideType
     {
         [XmlEnum("forwarded")] Forwarded,
@@ -230,20 +263,25 @@ namespace DmarcRua
     public class PolicyEvaluatedType
     {
         [XmlElement("disposition", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("disposition")]
         public DispositionType Disposition { get; set; }
 
         [XmlElement("dkim", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("dkim")]
         public DMARCResultType Dkim { get; set; }
 
         [XmlElement("spf", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("spf")]
         public DMARCResultType Spf { get; set; }
 
         [XmlElement("reason", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("reason")]
         public PolicyOverrideReason[] Reason { get; set; }
     }
 
     [Serializable]
     [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DispositionType
     {
         [XmlEnum("none")] None,
@@ -256,6 +294,7 @@ namespace DmarcRua
     [Serializable]
     [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DMARCResultType
     {
         [XmlEnum("pass")] Pass,
@@ -267,12 +306,15 @@ namespace DmarcRua
     public class RowType
     {
         [XmlElement("source_ip", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("source_ip")]
         public string SourceIp { get; set; }
 
         [XmlElement("count", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("count")]
         public int Count { get; set; }
 
         [XmlElement("policy_evaluated", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("policy_evaluated")]
         public PolicyEvaluatedType PolicyEvaluated { get; set; }
     }
 
@@ -281,15 +323,20 @@ namespace DmarcRua
     public class RecordType
     {
         [XmlElement("row", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("row")]
         public RowType Row { get; set; }
 
         [XmlElement("identifiers", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("identifiers")]
         public IdentifierType Identifiers { get; set; }
 
         [XmlElement("auth_results", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("auth_results")]
         public AuthResultType AuthResults { get; set; }
 
-        [XmlAnyElement] public XmlElement[] Extensions { get; set; }
+        [XmlAnyElement]
+        [JsonIgnore]
+        public XmlElement[] Extensions { get; set; }
     }
 
     [Serializable]
@@ -297,52 +344,68 @@ namespace DmarcRua
     public class PolicyPublishedType
     {
         [XmlElement("domain", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("domain")]
         public string Domain { get; set; }
 
         [XmlElement("adkim", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("adkim")]
         public AlignmentType? Adkim { get; set; }
 
         [XmlElement("aspf", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("aspf")]
         public AlignmentType? Aspf { get; set; }
 
         [XmlElement("p", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("p")]
         public DispositionType P { get; set; }
 
         [XmlElement("np", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("np")]
         public DispositionType? Np { get; set; }
 
         [XmlElement("sp", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("sp")]
         public DispositionType Sp { get; set; }
 
         [XmlElement("pct", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("pct")]
         public string Percent { get; set; }
 
         [XmlElement("fo", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("fo")]
         public string Fo { get; set; }
 
         [XmlElement("ri", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("ri")]
         public int Ri { get; set; }
 
         [XmlElement("rua", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("rua")]
         public string Rua { get; set; }
 
         [XmlElement("ruf", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("ruf")]
         public string Ruf { get; set; }
 
         [XmlElement("rf", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("rf")]
         public string Rf { get; set; }
 
         [XmlElement("v", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("v")]
         public string V { get; set; }
 
         [XmlElement("testing", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("testing")]
         public TestingType? Testing { get; set; }
 
         [XmlElement("discovery_method", Form = XmlSchemaForm.Unqualified)]
+        [JsonPropertyName("discovery_method")]
         public DiscoveryType? DiscoveryMethod { get; set; }
     }
 
     [Serializable]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public enum AlignmentType
     {
@@ -353,6 +416,12 @@ namespace DmarcRua
     [Serializable]
     public class ExtensionType
     {
-        [XmlAnyElement] public XmlElement[] Any { get; set; }
+        [JsonIgnore]
+        [XmlAnyElement] 
+        public XmlElement[] Any { get; set; }
+
+        [XmlIgnore]
+        [JsonPropertyName("Any")]  
+        public string[] JsonAny { get; set; }
     }
 }
