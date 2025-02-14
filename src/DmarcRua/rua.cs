@@ -116,11 +116,12 @@ namespace DmarcRua
         public long End { get; set; }
     }
 
-    [Serializable]
-    public enum SpfDomainScope
-    {
-        [XmlEnum("mfrom")] MFrom
-    }
+       [Serializable]
+   public enum SpfDomainScope
+   {
+       [XmlEnum("mfrom")] MFrom,
+       [XmlEnum("helo")] Helo
+   }
 
     [Serializable]
     [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
