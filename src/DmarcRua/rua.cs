@@ -119,7 +119,8 @@ namespace DmarcRua
     [Serializable]
     public enum SpfDomainScope
     {
-        [XmlEnum("mfrom")] MFrom
+        [XmlEnum("mfrom")] MFrom,
+        [XmlEnum("helo")] Helo
     }
 
     [Serializable]
@@ -162,7 +163,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]    
+    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class DKIMAuthResultType
     {
         [XmlElement("domain", Form = XmlSchemaForm.Unqualified)]
@@ -349,11 +350,41 @@ namespace DmarcRua
 
         [XmlElement("adkim", Form = XmlSchemaForm.Unqualified)]
         [JsonPropertyName("adkim")]
-        public AlignmentType? Adkim { get; set; }
+        public string AdkimRaw { get; set; }
 
         [XmlElement("aspf", Form = XmlSchemaForm.Unqualified)]
         [JsonPropertyName("aspf")]
-        public AlignmentType? Aspf { get; set; }
+        public string AspfRaw { get; set; }
+
+        [XmlIgnore]
+        public AlignmentType? Aspf
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(AspfRaw))
+                    return null;
+
+                var cleaned = ValidationFunctions.CleanText(AspfRaw);
+                return cleaned == "r" ? AlignmentType.Relaxed :
+                       cleaned == "s" ? AlignmentType.Strict :
+                       throw new InvalidOperationException($"Unexpected aspf value: {AspfRaw}");
+            }
+        }
+
+        [XmlIgnore]
+        public AlignmentType? Adkim
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(AdkimRaw))
+                    return null;
+                // Remove non-alphanumeric characters
+                var cleaned = ValidationFunctions.CleanText(AdkimRaw);
+                return cleaned == "r" ? AlignmentType.Relaxed :
+                       cleaned == "s" ? AlignmentType.Strict :
+                       throw new InvalidOperationException($"Unexpected adkim value: {AdkimRaw}");
+            }
+        }
 
         [XmlElement("p", Form = XmlSchemaForm.Unqualified)]
         [JsonPropertyName("p")]
@@ -417,11 +448,20 @@ namespace DmarcRua
     public class ExtensionType
     {
         [JsonIgnore]
-        [XmlAnyElement] 
+        [XmlAnyElement]
         public XmlElement[] Any { get; set; }
 
         [XmlIgnore]
-        [JsonPropertyName("Any")]  
+        [JsonPropertyName("Any")]
         public string[] JsonAny { get; set; }
     }
+
+    internal static class ValidationFunctions
+    {
+        internal static string CleanText(string text)
+        {
+            return System.Text.RegularExpressions.Regex.Replace(text, "[^a-z0-9]", "");
+        }
+    }
+
 }
