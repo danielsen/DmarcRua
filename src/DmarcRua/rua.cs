@@ -46,7 +46,7 @@ namespace DmarcRua
 
         [XmlElement("version", Form = XmlSchemaForm.Unqualified)]
         public string Version { get; set; }
-        
+
         [XmlElement("extension", Form = XmlSchemaForm.Unqualified)]
         public ExtensionType Extension { get; set; }
     }
@@ -319,10 +319,15 @@ namespace DmarcRua
         public string Domain { get; set; }
 
         [XmlElement("adkim", Form = XmlSchemaForm.Unqualified)]
-        public AlignmentType? Adkim { get; set; }
+        public string AdkimRaw { get; set; }
+
+        public AlignmentType? Adkim => AdkimRaw.AlignmentTypeFromString();
 
         [XmlElement("aspf", Form = XmlSchemaForm.Unqualified)]
-        public AlignmentType? Aspf { get; set; }
+        public string AspfRaw { get; set; }
+
+        public AlignmentType? Aspf => AspfRaw.AlignmentTypeFromString();
+
 
         [XmlElement("p", Form = XmlSchemaForm.Unqualified)]
         public DispositionType P { get; set; }
@@ -373,5 +378,30 @@ namespace DmarcRua
     public class ExtensionType
     {
         [XmlAnyElement] public XmlElement[] Any { get; set; }
+    }
+
+
+    internal static class ValidationFunctions
+    {
+        internal static AlignmentType? AlignmentTypeFromString(this string alignmentType)
+        {
+            switch (alignmentType.CleanOutStringSpecials())
+            {
+                case "r":
+                    return AlignmentType.Relaxed;
+                case "s":
+                    return AlignmentType.Strict;
+                default:
+                    return null;
+            }
+        }
+
+        internal static string CleanOutStringSpecials(this string input)
+        {
+            input = input?.Trim().ToLower();
+            // Clean out any special characters from the string. 
+            return System.Text.RegularExpressions.Regex.Replace(input, "[^a-z0-9]", "");
+
+        }
     }
 }
