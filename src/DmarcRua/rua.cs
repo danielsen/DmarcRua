@@ -31,7 +31,6 @@ using System.Xml.Serialization;
 namespace DmarcRua
 {
     [Serializable]
-    [XmlType(AnonymousType = true, Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     [XmlRoot("feedback", IsNullable = false)]
     public class Feedback
     {
@@ -66,7 +65,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    
     public class ReportMetadataType
     {
         [XmlElement("org_name", Form = XmlSchemaForm.Unqualified)]
@@ -89,7 +88,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class DateRangeType
     {
         [XmlElement("begin", Form = XmlSchemaForm.Unqualified)]
@@ -106,7 +104,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class SpfAuthResultType
     {
         [XmlElement("domain", Form = XmlSchemaForm.Unqualified)]
@@ -123,7 +120,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public enum SpfResultType
     {
         [XmlEnum("none")] None,
@@ -140,7 +136,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     // ReSharper disable once InconsistentNaming
     public class DKIMAuthResultType
     {
@@ -158,7 +153,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     // ReSharper disable once InconsistentNaming
     public enum DKIMResultType
     {
@@ -177,7 +171,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class AuthResultType
     {
         [XmlElement("dkim", Form = XmlSchemaForm.Unqualified)]
@@ -188,7 +181,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class IdentifierType
     {
         [XmlElement("envelope_to", Form = XmlSchemaForm.Unqualified)]
@@ -202,7 +194,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class PolicyOverrideReason
     {
         [XmlElement("type", Form = XmlSchemaForm.Unqualified)]
@@ -213,7 +204,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public enum PolicyOverrideType
     {
         [XmlEnum("forwarded")] Forwarded,
@@ -226,7 +216,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class PolicyEvaluatedType
     {
         [XmlElement("disposition", Form = XmlSchemaForm.Unqualified)]
@@ -243,7 +232,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public enum DispositionType
     {
         [XmlEnum("none")] None,
@@ -254,7 +242,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public enum DMARCResultType
     {
@@ -263,7 +250,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class RowType
     {
         [XmlElement("source_ip", Form = XmlSchemaForm.Unqualified)]
@@ -277,7 +263,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class RecordType
     {
         [XmlElement("row", Form = XmlSchemaForm.Unqualified)]
@@ -293,7 +278,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public class PolicyPublishedType
     {
         [XmlElement("domain", Form = XmlSchemaForm.Unqualified)]
@@ -343,7 +327,6 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
     public enum AlignmentType
     {
         [XmlEnum("r")] Relaxed,

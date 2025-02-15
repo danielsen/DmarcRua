@@ -153,11 +153,13 @@ namespace DmarcRua
         /// <param name="ruaStream">A stream containing the RUA report to serialize.</param>
         public void ReadAggregateReport(Stream ruaStream)
         {
-            using (XmlReader ruaReader = XmlReader.Create(ruaStream, _xmlReaderSettings))
+            using (XmlReader baseReader = XmlReader.Create(ruaStream, _xmlReaderSettings))
             {
-                var serializer = new XmlSerializer(typeof(Feedback));
-
-                Feedback = (Feedback) serializer.Deserialize(ruaReader);
+                using (XmlReader reader = new NamespaceIgnorantXmlReader(baseReader))
+                {
+                    var serializer = new XmlSerializer(typeof(Feedback));
+                    Feedback = (Feedback)serializer.Deserialize(reader);
+                }
             }
         }
     }
