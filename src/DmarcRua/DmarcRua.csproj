@@ -19,7 +19,7 @@ failures.</Description>
     <Summary>DmarcRua is a .NET serializer for DMARC aggregate reports.</Summary>
     <Product>DmarcRua</Product>
     <Version>1.1.5</Version>
-    <PackageVersion>2.0.0</PackageVersion>
+    <PackageVersion>2.0.1</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp1.1'">
