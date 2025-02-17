@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>oneinsane dot org</org_name>
+    <email>noreply-dmarc@oneinsane.org</email>
+    <report_id>durgonnews.com.1738825200.1738911600</report_id>
+    <date_range>
+      <begin>1738825200</begin>
+      <end>1738911600</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>aa97af8ba91541b0bb582484fb659771.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>1</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>aa97af8ba91541b0bb582484fb659771.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>aa97af8ba91541b0bb582484fb659771.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>aa97af8ba91541b0bb582484fb659771.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>aa97af8ba91541b0bb582484fb659771.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+</feedback>

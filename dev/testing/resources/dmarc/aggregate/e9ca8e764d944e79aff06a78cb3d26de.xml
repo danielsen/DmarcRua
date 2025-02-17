@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>GoDaddy.com</org_name>
+    <email>dmarcreports@secureserver.net</email>
+    <report_id>wwpl.org-1738037119</report_id>
+    <date_range>
+      <begin>1737479095</begin>
+      <end>1737479095</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>e9ca8e764d944e79aff06a78cb3d26de.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>reject</p>
+    <sp>reject</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>reject</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>e9ca8e764d944e79aff06a78cb3d26de.com</header_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>e9ca8e764d944e79aff06a78cb3d26de.com</domain>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

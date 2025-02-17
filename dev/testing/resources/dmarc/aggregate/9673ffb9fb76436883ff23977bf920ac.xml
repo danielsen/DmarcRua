@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feedback>
+  <report_metadata>
+    <org_name>Mimecast</org_name>
+    <email>no-reply@uk-1.mimecastreport.com</email>
+    <extra_contact_info>https://community.mimecast.com/s/knowledge</extra_contact_info>
+    <report_id>2d23037bce314a7a95b9a5861d44927d56799e80822a9df00e3bcc26c702c7ff</report_id>
+    <date_range>
+      <begin>1737849600</begin>
+      <end>1737935999</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>9673ffb9fb76436883ff23977bf920ac.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>pass</dkim>
+        <spf>pass</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>9673ffb9fb76436883ff23977bf920ac.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>9673ffb9fb76436883ff23977bf920ac.com</domain>
+        <selector>20211102-v1ln2anq</selector>
+        <result>pass</result>
+        <human_result/>
+      </dkim>
+      <spf>
+        <domain>9673ffb9fb76436883ff23977bf920ac.com</domain>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

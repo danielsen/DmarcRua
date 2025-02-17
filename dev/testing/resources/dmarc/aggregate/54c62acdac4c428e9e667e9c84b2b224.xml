@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>oneinsane dot org</org_name>
+    <email>noreply-dmarc@oneinsane.org</email>
+    <report_id>specialzworkstoday.com.1738134000.1738220400</report_id>
+    <date_range>
+      <begin>1738134000</begin>
+      <end>1738220400</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>54c62acdac4c428e9e667e9c84b2b224.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>1</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>54c62acdac4c428e9e667e9c84b2b224.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>54c62acdac4c428e9e667e9c84b2b224.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>54c62acdac4c428e9e667e9c84b2b224.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>54c62acdac4c428e9e667e9c84b2b224.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+</feedback>

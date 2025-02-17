@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>google.com</org_name>
+    <email>noreply-dmarc-support@google.com</email>
+    <extra_contact_info>https://support.google.com/a/answer/2466580</extra_contact_info>
+    <report_id>17719371868900572838</report_id>
+    <date_range>
+      <begin>1739232000</begin>
+      <end>1739318399</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>e14ec202956a4d0bb143efa898fb0616.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+    <np>none</np>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>pass</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>e14ec202956a4d0bb143efa898fb0616.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>e14ec202956a4d0bb143efa898fb0616.com</domain>
+        <result>pass</result>
+        <selector>default</selector>
+      </dkim>
+      <spf>
+        <domain>e14ec202956a4d0bb143efa898fb0616.com</domain>
+        <result>none</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

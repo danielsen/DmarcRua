@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feedback>
+  <report_metadata>
+    <org_name>Mimecast</org_name>
+    <email>no-reply@us-1.mimecastreport.com</email>
+    <extra_contact_info>https://community.mimecast.com/s/knowledge</extra_contact_info>
+    <report_id>0bb0796b3c7721c6d60f8356d96d27a55b21533c3c7a92366a1f8dddd49b86ab</report_id>
+    <date_range>
+      <begin>1737936000</begin>
+      <end>1738022399</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>d234a151141c47e2b5b166ab05aba771.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>d234a151141c47e2b5b166ab05aba771.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>d234a151141c47e2b5b166ab05aba771.com</domain>
+        <selector>mx</selector>
+        <result>pass</result>
+        <human_result/>
+      </dkim>
+      <spf>
+        <domain>d234a151141c47e2b5b166ab05aba771.com</domain>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

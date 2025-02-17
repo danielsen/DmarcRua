@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>Tecnocratica DMARC Report</org_name>
+    <email>dmarc@reports.tecnocratica.net</email>
+    <report_id>specialzworkstoday.com.1737932400.1738018800</report_id>
+    <date_range>
+      <begin>1737932400</begin>
+      <end>1738018800</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>1</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>90474c4abe5448df81e553cd7fac8ea4.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>2</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>90474c4abe5448df81e553cd7fac8ea4.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>2</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>90474c4abe5448df81e553cd7fac8ea4.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>90474c4abe5448df81e553cd7fac8ea4.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+</feedback>

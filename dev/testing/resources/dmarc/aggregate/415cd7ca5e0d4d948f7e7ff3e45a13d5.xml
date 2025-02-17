@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+<report_metadata>
+  <org_name>uniqa.cz</org_name>
+  <email>admin@uniqa.cz</email>
+  <report_id>aggr_report_indigo-mailer5.com_20250209_1552</report_id>
+  <date_range>
+   <begin>1739029860</begin>
+   <end>1739116347</end>
+  </date_range>
+ </report_metadata>
+ <policy_published>
+  <domain>415cd7ca5e0d4d948f7e7ff3e45a13d5.com</domain>
+  <adkim>r</adkim>
+  <aspf>r</aspf>
+  <p>none</p>
+  <sp>none</sp>
+  <pct>100</pct>
+ </policy_published>
+ <record>
+  <row>
+   <source_ip>127.0.0.1</source_ip>
+   <count>1</count>
+   <policy_evaluated>
+    <disposition>none</disposition>
+    <dkim>fail</dkim>
+    <spf>softfail</spf>
+   </policy_evaluated>
+  </row>
+  <identifiers>
+   <header_from>415cd7ca5e0d4d948f7e7ff3e45a13d5.com</header_from>
+  </identifiers>
+  <auth_results>
+   <dkim>
+    <domain>415cd7ca5e0d4d948f7e7ff3e45a13d5.com</domain>
+    <result>fail</result>
+   </dkim>
+   <spf>
+    <domain>415cd7ca5e0d4d948f7e7ff3e45a13d5.com</domain>
+    <result>softfail</result>
+   </spf>
+  </auth_results>
+ </record>
+</feedback>

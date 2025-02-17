@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feedback>
+    <version>1.0</version>
+    <report_metadata>
+        <org_name>zoho.com</org_name>
+        <email>noreply-dmarc@zoho.com</email>
+        <extra_contact_info>https://www.zoho.com/mail/help/adminconsole/dmarc-policy.html</extra_contact_info>
+        <report_id>0adc9206-4fd1-4b55-a1c8-35bc07ab770e</report_id>
+        <date_range>
+            <begin>1737360000</begin>
+            <end>1737446400</end>
+        </date_range>
+    </report_metadata>
+    <policy_published>
+        <domain>10e23d54c02e4258af6bf3462bf02c29.com</domain>
+        <adkim>r</adkim>
+        <aspf>r</aspf>
+        <p>reject</p>
+        <pct>100</pct>
+        <fo>0</fo>
+    </policy_published>
+    <record>
+        <row>
+            <source_ip>127.0.0.1</source_ip>
+            <count>1</count>
+            <policy_evaluated>
+                <disposition>reject</disposition>
+                <dkim>fail</dkim>
+                <spf>fail</spf>
+            </policy_evaluated>
+        </row>
+        <identifiers>
+            <header_from>10e23d54c02e4258af6bf3462bf02c29.com</header_from>
+        </identifiers>
+        <auth_results>
+            <spf>
+                <domain>10e23d54c02e4258af6bf3462bf02c29.com</domain>
+                <result>pass</result>
+                <scope>mfrom</scope>
+            </spf>
+        </auth_results>
+    </record>
+</feedback>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+    <report_metadata>
+        <org_name>centerasecurity.com</org_name>
+         <email>dmarc-report@centerasecurity.com</email>
+         <report_id>indigo-mail3.com:1739240101</report_id>
+         <date_range>
+         <begin>1739145600</begin>
+         <end>1739232000</end>
+         </date_range>
+    </report_metadata>
+    <policy_published>
+        <domain>7320108517924a25b460b11f249c76bd.com</domain>
+        <adkim>r</adkim>
+        <aspf>r</aspf>
+        <p>none</p>
+        <sp>none</sp>
+        <pct>100</pct>
+    </policy_published>
+    <record>
+        <row>
+            <source_ip>127.0.0.1</source_ip>
+            <count>1</count>
+            <policy_evaluated>
+                <disposition>none</disposition>
+                <dkim>fail</dkim>
+                <spf>fail</spf>
+                <reason>
+                    <type>local_policy</type>
+                    <comment>arc=fail</comment>
+                </reason>
+            </policy_evaluated>
+        </row>
+        <identifiers>
+            <header_from>7320108517924a25b460b11f249c76bd.com</header_from>
+        </identifiers>
+        <auth_results>
+            <spf>
+                <domain>7320108517924a25b460b11f249c76bd.com</domain>
+                <result>unknown</result>
+            </spf>
+        </auth_results>
+    </record>
+</feedback>

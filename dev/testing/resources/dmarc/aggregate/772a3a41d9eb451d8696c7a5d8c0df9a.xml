@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<feedback>
+	<version>1.0</version>
+	<report_metadata>
+		<org_name>Comprehensive Business Systems</org_name>
+		<email>dmarc@cbsnospam.com</email>
+		<extra_contact_info>MSchauben@cbsbiz.com</extra_contact_info>
+		<report_id>854059</report_id>
+		<date_range>
+			<begin>1737590400</begin>
+			<end>1737676799</end>
+		</date_range>
+	</report_metadata>
+	<policy_published>
+		<domain>772a3a41d9eb451d8696c7a5d8c0df9a.com</domain>
+		<p>none</p>
+		<sp>none</sp>
+		<pct>100</pct>
+		<fo>0</fo>
+	</policy_published>
+	<record>
+		<row>
+			<source_ip>127.0.0.1</source_ip>
+			<count>1</count>
+			<policy_evaluated>
+				<disposition>none</disposition>
+				<dkim>fail</dkim>
+				<spf>fail</spf>
+				<reason>
+					<type>mailing_list</type>
+					<comment>Policy ignored due to local mailing list policy</comment>
+				</reason>
+			</policy_evaluated>
+		</row>
+		<identifiers>
+			<envelope_to>772a3a41d9eb451d8696c7a5d8c0df9a.com</envelope_to>
+			<envelope_from>772a3a41d9eb451d8696c7a5d8c0df9a.com</envelope_from>
+			<header_from>772a3a41d9eb451d8696c7a5d8c0df9a.com</header_from>
+		</identifiers>
+		<auth_results>
+			<dkim>
+				<domain>772a3a41d9eb451d8696c7a5d8c0df9a.com</domain>
+				<selector>k1</selector>
+				<result>pass</result>
+				<human_result>pass</human_result>
+			</dkim>
+			<dkim>
+				<domain>772a3a41d9eb451d8696c7a5d8c0df9a.com</domain>
+				<selector>rmk</selector>
+				<result>temperror</result>
+				<human_result>invalid (public key: not available)</human_result>
+			</dkim>
+			<spf>
+				<domain>772a3a41d9eb451d8696c7a5d8c0df9a.com</domain>
+				<scope>mfrom</scope>
+				<result>pass</result>
+			</spf>
+		</auth_results>
+	</record>
+</feedback>

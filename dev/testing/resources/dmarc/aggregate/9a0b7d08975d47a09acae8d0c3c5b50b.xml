@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feedback>
+  <report_metadata>
+    <org_name>Mimecast</org_name>
+    <email>no-reply@uk-1.mimecastreport.com</email>
+    <extra_contact_info>https://community.mimecast.com/s/knowledge</extra_contact_info>
+    <report_id>7504e2f29f1c43fbb80691138d346a57b6ae13aa0b2b3d7a8b98e200fd4973c6</report_id>
+    <date_range>
+      <begin>1738281600</begin>
+      <end>1738367999</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>9a0b7d08975d47a09acae8d0c3c5b50b.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>pass</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>9a0b7d08975d47a09acae8d0c3c5b50b.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>9a0b7d08975d47a09acae8d0c3c5b50b.com</domain>
+        <selector>selector2-iwtas-onmicrosoft-com</selector>
+        <result>pass</result>
+        <human_result/>
+      </dkim>
+      <spf>
+        <domain>9a0b7d08975d47a09acae8d0c3c5b50b.com</domain>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feedback>
+    <report_metadata>
+        <org_name>nerdsoft.com</org_name>
+        <email>no-reply@nerdsoft.com</email>
+        <report_id>1738127114918.85516</report_id>
+        <date_range>
+            <end>1738126800</end>
+            <begin>1738040400</begin>
+        </date_range>
+    </report_metadata>
+    <policy_published>
+        <domain>641dedfe35ba41d0af1f076e60eb7f14.com</domain>
+        <pct>100</pct>
+        <adkim>r</adkim>
+        <sp>none</sp>
+        <aspf>r</aspf>
+        <p>none</p>
+    </policy_published>
+    <record>
+        <row>
+            <count>1</count>
+            <source_ip>127.0.0.1</source_ip>
+            <policy_evaluated>
+                <disposition>none</disposition>
+                <dkim>pass</dkim>
+                <spf>fail</spf>
+            </policy_evaluated>
+        </row>
+        <identifiers>
+            <header_from>641dedfe35ba41d0af1f076e60eb7f14.com</header_from>
+        </identifiers>
+        <auth_results>
+            <dkim>
+                <result>pass</result>
+                <domain>641dedfe35ba41d0af1f076e60eb7f14.com</domain>
+            </dkim>
+            <spf>
+                <domain>641dedfe35ba41d0af1f076e60eb7f14.com</domain>
+                <result>pass</result>
+            </spf>
+        </auth_results>
+    </record>
+</feedback>

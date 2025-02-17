@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feedback>
+  <version>1.0</version>
+  <report_metadata>
+    <org_name>kddi.com</org_name>
+    <email>noreply-dmarc-support@kddi.com</email>
+    <extra_contact_info>https://support.kddi.com/dmarc</extra_contact_info>
+    <report_id>20250122161212046043</report_id>
+    <date_range>
+      <begin>1737529932</begin>
+      <end>1737539884</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>04437c3233fd4b398e870f7bb2507be5.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>reject</p>
+    <sp>reject</sp>
+    <pct>100</pct>
+    <fo>0</fo>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>2</count>
+      <policy_evaluated>
+        <disposition>reject</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+        <reason>
+          <type></type>
+          <comment></comment>
+        </reason>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <envelope_to>04437c3233fd4b398e870f7bb2507be5.com</envelope_to>
+      <envelope_from>04437c3233fd4b398e870f7bb2507be5.com</envelope_from>
+      <header_from>04437c3233fd4b398e870f7bb2507be5.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>04437c3233fd4b398e870f7bb2507be5.com</domain>
+        <selector></selector>
+        <result>none</result>
+        <human_result>no signature data</human_result>
+      </dkim>
+      <spf>
+        <domain>04437c3233fd4b398e870f7bb2507be5.com</domain>
+        <scope>mfrom</scope>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>google.com</org_name>
+    <email>noreply-dmarc-support@google.com</email>
+    <extra_contact_info>https://support.google.com/a/answer/2466580</extra_contact_info>
+    <report_id>17744417800646584068</report_id>
+    <date_range>
+      <begin>1738454400</begin>
+      <end>1738540799</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>5dcb29249ba64fe7932f2663498c485b.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+    <np>none</np>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>5dcb29249ba64fe7932f2663498c485b.com</header_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>5dcb29249ba64fe7932f2663498c485b.com</domain>
+        <result>permerror</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

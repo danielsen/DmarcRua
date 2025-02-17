@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feedback>
+  <report_metadata>
+    <org_name>Mimecast</org_name>
+    <email>no-reply@uk-1.mimecastreport.com</email>
+    <extra_contact_info>https://community.mimecast.com/s/knowledge</extra_contact_info>
+    <report_id>6f6d70c215121b84e4052a98b10de0274205919a87bd4fb3bea8d385c6f33a87</report_id>
+    <date_range>
+      <begin>1738281600</begin>
+      <end>1738367999</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>5c181116021a4b9e9b60b873610e1003.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>pass</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>5c181116021a4b9e9b60b873610e1003.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>5c181116021a4b9e9b60b873610e1003.com</domain>
+        <selector>selector2-irvineprinting-onmicrosoft-com</selector>
+        <result>pass</result>
+        <human_result/>
+      </dkim>
+      <spf>
+        <domain>5c181116021a4b9e9b60b873610e1003.com</domain>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

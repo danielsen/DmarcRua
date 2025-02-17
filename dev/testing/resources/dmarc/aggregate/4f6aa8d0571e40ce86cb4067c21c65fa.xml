@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>iEditWeb, Inc.</org_name>
+    <email>dmarc-copy@ieditweb.com</email>
+    <report_id>specialzworkstoday.com.1737694800.1737781200</report_id>
+    <date_range>
+      <begin>1737694800</begin>
+      <end>1737781200</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>1</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>4f6aa8d0571e40ce86cb4067c21c65fa.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>1</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>4f6aa8d0571e40ce86cb4067c21c65fa.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>3</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>4f6aa8d0571e40ce86cb4067c21c65fa.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>4f6aa8d0571e40ce86cb4067c21c65fa.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+</feedback>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>GMO Pepabo, Inc.</org_name>
+    <email>dmarc-reports@service.muumuu-domain.com</email>
+    <report_id>specialzworkstoday.com.1737644400.1737730800</report_id>
+    <date_range>
+      <begin>1737644400</begin>
+      <end>1737730800</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>a2dde7534f97463ea0daa23687121350.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>1</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>a2dde7534f97463ea0daa23687121350.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>a2dde7534f97463ea0daa23687121350.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>a2dde7534f97463ea0daa23687121350.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>a2dde7534f97463ea0daa23687121350.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+</feedback>

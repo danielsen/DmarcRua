@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <version>1.0</version>
+  <report_metadata>
+    <org_name>vcu.edu</org_name>
+    <email>MAILER-DAEMON@esa.vcu.iphmx.com</email>
+    <extra_contact_info>dmarc@vcu.edu</extra_contact_info>
+    <report_id>f6de33$8c3c5df=664ced8bce712a58@vcu.edu</report_id>
+    <date_range>
+      <begin>1739007904</begin>
+      <end>1739094336</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>9060f429d98249ae88a4ee08139d5c1b.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>9060f429d98249ae88a4ee08139d5c1b.com</header_from>
+      <envelope_from>9060f429d98249ae88a4ee08139d5c1b.com</envelope_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>9060f429d98249ae88a4ee08139d5c1b.com</domain>
+        <scope>mfrom</scope>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>
