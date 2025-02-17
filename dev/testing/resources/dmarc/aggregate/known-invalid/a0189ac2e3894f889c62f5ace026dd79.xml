@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>Sigmanet</org_name>
+    <email>postmaster@sigmanet.lv</email>
+    <report_id>akglobalgroup.com.1737583200.1737669600</report_id>
+    <date_range>
+      <begin>1737583200</begin>
+      <end>1737669600</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>a0189ac2e3894f889c62f5ace026dd79.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>reject</sp>
+    <pct>100</pct>
+  </policy_published>
+</feedback>

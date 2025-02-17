@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <version>1.0</version>
+  <report_metadata>
+    <org_name>cooperhealth.edu</org_name>
+    <email>dmarc@cooperhealth.edu</email>
+    <extra_contact_info></extra_contact_info>
+    <report_id>9bb85d$a9a884f=c005e9f0e7d5d784@cooperhealth.edu</report_id>
+    <date_range>
+      <begin>1737612003</begin>
+      <end>1737698404</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>f3233bc54e174e0491aef29737c5beb2.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp></sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>4</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>f3233bc54e174e0491aef29737c5beb2.com</header_from>
+      <envelope_from>f3233bc54e174e0491aef29737c5beb2.com</envelope_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>f3233bc54e174e0491aef29737c5beb2.com</domain>
+        <scope>mfrom</scope>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

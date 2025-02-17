@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>GMO Pepabo, Inc.</org_name>
+    <email>dmarc-reports@heteml.jp</email>
+    <report_id>specialzworkstoday.com.1737558000.1737644400</report_id>
+    <date_range>
+      <begin>1737558000</begin>
+      <end>1737644400</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>1</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>3cea13c27ec44aaea067bb740ac3cf85.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>2</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>3cea13c27ec44aaea067bb740ac3cf85.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>2</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>3cea13c27ec44aaea067bb740ac3cf85.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>3</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>3cea13c27ec44aaea067bb740ac3cf85.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>3cea13c27ec44aaea067bb740ac3cf85.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+</feedback>

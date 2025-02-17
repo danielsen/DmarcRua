@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <version>1.0</version>
+  <report_metadata>
+    <org_name>esa1.hc4377-15.iphmx.com</org_name>
+    <email>MAILER-DAEMON@esa1.hc4377-15.iphmx.com</email>
+    <extra_contact_info></extra_contact_info>
+    <report_id>db7dc0$21a9407=8600f8a952f6e04a@esa1.hc4377-15.iphmx.com</report_id>
+    <date_range>
+      <begin>1738821603</begin>
+      <end>1738908005</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>0c5c51c6068a44478b5c38d03c4488ed.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>0c5c51c6068a44478b5c38d03c4488ed.com</header_from>
+      <envelope_from>0c5c51c6068a44478b5c38d03c4488ed.com</envelope_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>0c5c51c6068a44478b5c38d03c4488ed.com</domain>
+        <scope>mfrom</scope>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

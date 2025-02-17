@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <version>1.0</version>
+  <report_metadata>
+    <org_name>yvfwc.org</org_name>
+    <email>MAILER-DAEMON@yvfwc.org</email>
+    <extra_contact_info></extra_contact_info>
+    <report_id>8cf8be$f7ccfa7=f23bab75e4dec584@yvfwc.org</report_id>
+    <date_range>
+      <begin>1738828804</begin>
+      <end>1738915213</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>c9b620e2424144eca41e8b213371d548.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp></sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>2</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>c9b620e2424144eca41e8b213371d548.com</header_from>
+      <envelope_from>c9b620e2424144eca41e8b213371d548.com</envelope_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>c9b620e2424144eca41e8b213371d548.com</domain>
+        <scope>mfrom</scope>
+        <result>pass</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

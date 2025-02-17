@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>GoDaddy.com</org_name>
+    <email>dmarcreports@secureserver.net</email>
+    <report_id>info.cardless.com-1737774211</report_id>
+    <date_range>
+      <begin>1737208000</begin>
+      <end>1737208000</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>7bed23ae378445868356ef2df5815711.com</domain>
+    <adkim>s</adkim>
+    <aspf>s</aspf>
+    <p>quarantine</p>
+    <sp>quarantine</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>pass</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>7bed23ae378445868356ef2df5815711.com</header_from>
+    </identifiers>
+    <auth_results>
+      <spf>
+        <domain>7bed23ae378445868356ef2df5815711.com</domain>
+        <result>pass</result>
+      </spf>
+      <dkim>
+        <domain>7bed23ae378445868356ef2df5815711.com</domain>
+        <result>pass</result>
+      </dkim>
+    </auth_results>
+  </record>
+</feedback>

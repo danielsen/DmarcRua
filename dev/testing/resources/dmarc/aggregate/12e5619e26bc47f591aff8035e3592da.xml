@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>Kentec Communications, Inc.</org_name>
+    <email>noreply@kci.net</email>
+    <report_id>durgonnews.com.1738652400.1738738800</report_id>
+    <date_range>
+      <begin>1738652400</begin>
+      <end>1738738800</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>12e5619e26bc47f591aff8035e3592da.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>1</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>12e5619e26bc47f591aff8035e3592da.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>12e5619e26bc47f591aff8035e3592da.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>12e5619e26bc47f591aff8035e3592da.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>12e5619e26bc47f591aff8035e3592da.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+</feedback>

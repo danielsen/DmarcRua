@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>google.com</org_name>
+    <email>noreply-dmarc-support@google.com</email>
+    <extra_contact_info>https://support.google.com/a/answer/2466580</extra_contact_info>
+    <report_id>1902453146803031700</report_id>
+    <date_range>
+      <begin>1739145600</begin>
+      <end>1739231999</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>1c8aaa421981453d87d7c45288940a7c.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+    <np>none</np>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>1c8aaa421981453d87d7c45288940a7c.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>1c8aaa421981453d87d7c45288940a7c.com</domain>
+        <result>pass</result>
+        <selector>selector1-NETORG5284284-onmicrosoft-com</selector>
+      </dkim>
+      <spf>
+        <domain>1c8aaa421981453d87d7c45288940a7c.com</domain>
+        <result>fail</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<feedback>
+  <version>1.0</version>
+  <report_metadata>
+    <org_name>CWRU</org_name>
+    <email>dmarc-aggregate@case.edu</email>
+    <extra_contact_info />
+    <report_id>CWRU.1739247408.1256433</report_id>
+    <date_range>
+      <begin>1739145600</begin>
+      <end>1739232000</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>2cc32d95b4f142578eb7c70d3cea6219.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp />
+    <pct>100</pct>
+  </policy_published>
+</feedback>

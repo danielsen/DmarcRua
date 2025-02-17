@@ -20,15 +20,7 @@
             <xs:element name="error" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
         </xs:choice>
     </xs:complexType>
-
-    <!-- Alignment mode (relaxed or strict) for DKIM and SPF. -->
-    <xs:simpleType name="AlignmentType">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="r"/>
-            <xs:enumeration value="s"/>
-        </xs:restriction>
-    </xs:simpleType>
-
+    
     <!-- The methods used to discovery the policy used during evaluation.
          Available values are "psl" and "treewalk"
     -->
@@ -77,9 +69,9 @@
             <!-- The domain at which the DMARC record was found. -->
             <xs:element name="domain" type="xs:string"/>
             <!-- The DKIM alignment mode. -->
-            <xs:element name="adkim" type="AlignmentType" minOccurs="0"/>
+            <xs:element name="adkim" type="xs:string" minOccurs="0"/>
             <!-- The SPF alignment mode. -->
-            <xs:element name="aspf" type="AlignmentType" minOccurs="0"/>
+            <xs:element name="aspf" type="xs:string" minOccurs="0"/>
             <!-- The policy to apply to messages from the domain. -->
             <xs:element name="p" type="DispositionType"/>
             <!-- The handling policy for non-existent subdomains-->
@@ -108,10 +100,16 @@
     </xs:complexType>
 
     <!-- The DMARC-aligned authentication result. -->
+    <!-- ==============================================================
+    2025-02-14
+      Added softfail enumeration. Observed in reports from uniqa.cz
+    ============================================================== -->
     <xs:simpleType name="DMARCResultType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="pass"/>
             <xs:enumeration value="fail"/>
+            <xs:enumeration value="softfail"/>
+            <xs:enumeration value="none"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -223,6 +221,12 @@
     </xs:complexType>
 
     <!-- DKIM verification result, according to RFC 5451 Section 2.4.1. -->
+    <!-- ==============================================================
+    2025-02-14 
+      Added "", observed in reports from gosecure.net
+      Added "invalid", observed in reports from nfm.net
+      Added "unknown", observed in reports from inexio.net
+    ============================================================== -->
     <xs:simpleType name="DKIMResultType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="none"/>
@@ -232,6 +236,9 @@
             <xs:enumeration value="neutral"/>
             <xs:enumeration value="temperror"/>
             <xs:enumeration value="permerror"/>
+            <xs:enumeration value=""/>
+            <xs:enumeration value="invalid"/>
+            <xs:enumeration value="unknown"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -262,6 +269,7 @@
             <xs:enumeration value="permerror"/>
             <xs:enumeration value="hardfail"/>
             <xs:enumeration value=""/>
+            <xs:enumeration value="unknown"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -293,10 +301,17 @@
     </xs:complexType>
 
     <!-- This element contains all the authentication results used to evaluate the DMARC disposition for the given set of messages. -->
+    <!-- ==============================================================
+    2025-02-17
+      Added handling for "identities". Multiple report providers are using the element instead of "identifiers".
+    ============================================================== -->
     <xs:complexType name="RecordType">
         <xs:sequence>
             <xs:element name="row" type="RowType"/>
-            <xs:element name="identifiers" type="IdentifierType"/>
+            <xs:choice minOccurs="0">
+              <xs:element name="identifiers" type="IdentifierType"/>
+              <xs:element name="identities" type="IdentifierType"/>
+            </xs:choice>
             <xs:element name="auth_results" type="AuthResultType"/>
             <!-- row level extensions -->
             <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>GMO Pepabo, Inc.</org_name>
+    <email>dmarc-reports@lolipop.jp</email>
+    <report_id>abraxsyscorp.com.1737471600.1737558000</report_id>
+    <date_range>
+      <begin>1737471600</begin>
+      <end>1737558000</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>aa70d1e56fa345cbb3649ee4e5a6a827.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>2</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>pass</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>aa70d1e56fa345cbb3649ee4e5a6a827.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>aa70d1e56fa345cbb3649ee4e5a6a827.com</domain>
+      <result>pass</result>
+    </dkim><dkim>
+      <domain>aa70d1e56fa345cbb3649ee4e5a6a827.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>aa70d1e56fa345cbb3649ee4e5a6a827.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+</feedback>

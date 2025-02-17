@@ -31,7 +31,7 @@ using System.Xml.Serialization;
 namespace DmarcRua
 {
     [Serializable]
-    [XmlType(AnonymousType = true, Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType(AnonymousType = true)]
     [XmlRoot("feedback", IsNullable = false)]
     public class Feedback
     {
@@ -46,7 +46,7 @@ namespace DmarcRua
 
         [XmlElement("version", Form = XmlSchemaForm.Unqualified)]
         public string Version { get; set; }
-        
+
         [XmlElement("extension", Form = XmlSchemaForm.Unqualified)]
         public ExtensionType Extension { get; set; }
     }
@@ -66,7 +66,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class ReportMetadataType
     {
         [XmlElement("org_name", Form = XmlSchemaForm.Unqualified)]
@@ -89,7 +89,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class DateRangeType
     {
         [XmlElement("begin", Form = XmlSchemaForm.Unqualified)]
@@ -102,11 +102,12 @@ namespace DmarcRua
     [Serializable]
     public enum SpfDomainScope
     {
-        [XmlEnum("mfrom")] MFrom
+        [XmlEnum("mfrom")] MFrom,
+        [XmlEnum("helo")] Helo
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class SpfAuthResultType
     {
         [XmlElement("domain", Form = XmlSchemaForm.Unqualified)]
@@ -123,7 +124,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public enum SpfResultType
     {
         [XmlEnum("none")] None,
@@ -136,11 +137,12 @@ namespace DmarcRua
 
         // Non-standard values observed in the wild.
         [XmlEnum("hardfail")] HardFail = PermError,
-        [XmlEnum("")] Default = None
+        [XmlEnum("")] Default = None,
+        [XmlEnum("unknown")] Unknown = TempError
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     // ReSharper disable once InconsistentNaming
     public class DKIMAuthResultType
     {
@@ -158,7 +160,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     // ReSharper disable once InconsistentNaming
     public enum DKIMResultType
     {
@@ -173,11 +175,13 @@ namespace DmarcRua
 
         // Non-standard values observed in the wild.
         [XmlEnum("hardfail")] HardFail = PermError,
+        [XmlEnum("invalid")] Invalid = TempError,
+        [XmlEnum("unknown")] Unknown = TempError,
         [XmlEnum("")] Default = None
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class AuthResultType
     {
         [XmlElement("dkim", Form = XmlSchemaForm.Unqualified)]
@@ -188,7 +192,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class IdentifierType
     {
         [XmlElement("envelope_to", Form = XmlSchemaForm.Unqualified)]
@@ -202,7 +206,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class PolicyOverrideReason
     {
         [XmlElement("type", Form = XmlSchemaForm.Unqualified)]
@@ -213,12 +217,12 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public enum PolicyOverrideType
     {
         [XmlEnum("forwarded")] Forwarded,
         [XmlEnum("ampled_out")] SampledOut,
-        [XmlEnum("trusted_forwarded")] TrustedForwarder,
+        [XmlEnum("trusted_forwarder")] TrustedForwarder,
         [XmlEnum("mailing_list")] MailingList,
         [XmlEnum("local_policy")] LocalPolicy,
         [XmlEnum("other")] Other,
@@ -226,7 +230,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class PolicyEvaluatedType
     {
         [XmlElement("disposition", Form = XmlSchemaForm.Unqualified)]
@@ -243,7 +247,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public enum DispositionType
     {
         [XmlEnum("none")] None,
@@ -254,16 +258,18 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public enum DMARCResultType
     {
         [XmlEnum("pass")] Pass,
-        [XmlEnum("fail")] Fail
+        [XmlEnum("fail")] Fail,
+        [XmlEnum("softfail")] Softfail = Fail,
+        [XmlEnum("none")] None = Pass
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class RowType
     {
         [XmlElement("source_ip", Form = XmlSchemaForm.Unqualified)]
@@ -277,33 +283,51 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class RecordType
     {
         [XmlElement("row", Form = XmlSchemaForm.Unqualified)]
         public RowType Row { get; set; }
 
+        // Added to accomodate otherwise valid reports that use
+        // "identities" instead of "identifiers".
+        [XmlChoiceIdentifier("IdentifierChoiceType")]
         [XmlElement("identifiers", Form = XmlSchemaForm.Unqualified)]
+        [XmlElement("identities", Form = XmlSchemaForm.Unqualified)]
         public IdentifierType Identifiers { get; set; }
 
         [XmlElement("auth_results", Form = XmlSchemaForm.Unqualified)]
         public AuthResultType AuthResults { get; set; }
 
         [XmlAnyElement] public XmlElement[] Extensions { get; set; }
+        
+        [XmlIgnore]
+        public IdentifierChoiceType IdentifierChoiceType { get; set; }
+    }
+
+    public enum IdentifierChoiceType
+    {
+        [XmlEnum("identifiers")] Identifiers,
+        [XmlEnum("identities")] Identities
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public class PolicyPublishedType
     {
         [XmlElement("domain", Form = XmlSchemaForm.Unqualified)]
         public string Domain { get; set; }
 
         [XmlElement("adkim", Form = XmlSchemaForm.Unqualified)]
-        public AlignmentType? Adkim { get; set; }
+        public string AdkimRaw { get; set; }
+
+        public AlignmentType? Adkim => AdkimRaw.AlignmentTypeFromString();
 
         [XmlElement("aspf", Form = XmlSchemaForm.Unqualified)]
-        public AlignmentType? Aspf { get; set; }
+        public string AspfRaw { get; set; }
+
+        public AlignmentType? Aspf => AspfRaw.AlignmentTypeFromString();
+
 
         [XmlElement("p", Form = XmlSchemaForm.Unqualified)]
         public DispositionType P { get; set; }
@@ -343,7 +367,7 @@ namespace DmarcRua
     }
 
     [Serializable]
-    [XmlType(Namespace = "http://dmarc.org/dmarc-xml/0.1")]
+    [XmlType]
     public enum AlignmentType
     {
         [XmlEnum("r")] Relaxed,
@@ -354,5 +378,30 @@ namespace DmarcRua
     public class ExtensionType
     {
         [XmlAnyElement] public XmlElement[] Any { get; set; }
+    }
+
+
+    internal static class ValidationFunctions
+    {
+        internal static AlignmentType? AlignmentTypeFromString(this string alignmentType)
+        {
+            switch (alignmentType.CleanOutStringSpecials())
+            {
+                case "r":
+                    return AlignmentType.Relaxed;
+                case "s":
+                    return AlignmentType.Strict;
+                default:
+                    return null;
+            }
+        }
+
+        internal static string CleanOutStringSpecials(this string input)
+        {
+            input = input?.Trim().ToLower();
+            // Clean out any special characters from the string. 
+            return System.Text.RegularExpressions.Regex.Replace(input, "[^a-z0-9]", "");
+
+        }
     }
 }

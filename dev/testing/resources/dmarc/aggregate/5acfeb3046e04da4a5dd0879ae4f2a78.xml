@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<feedback>
+  <report_metadata>
+    <org_name>Mimecast</org_name>
+    <email>no-reply@eu-2.mimecastreport.com</email>
+    <extra_contact_info>https://community.mimecast.com/s/knowledge</extra_contact_info>
+    <report_id>7f6ca009163442197fc84883dc791c3426b7ca357a344d8081b3fa623ed5d5d8</report_id>
+    <date_range>
+      <begin>1737590400</begin>
+      <end>1737676799</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>5acfeb3046e04da4a5dd0879ae4f2a78.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>127.0.0.1</source_ip>
+      <count>1</count>
+      <policy_evaluated>
+        <disposition>none</disposition>
+        <dkim>fail</dkim>
+        <spf>fail</spf>
+      </policy_evaluated>
+    </row>
+    <identifiers>
+      <header_from>5acfeb3046e04da4a5dd0879ae4f2a78.com</header_from>
+    </identifiers>
+    <auth_results>
+      <dkim>
+        <domain>5acfeb3046e04da4a5dd0879ae4f2a78.com</domain>
+        <selector>selector1-NETORG5284284-onmicrosoft-com</selector>
+        <result>pass</result>
+        <human_result/>
+      </dkim>
+      <spf>
+        <domain>5acfeb3046e04da4a5dd0879ae4f2a78.com</domain>
+        <result>fail</result>
+      </spf>
+    </auth_results>
+  </record>
+</feedback>

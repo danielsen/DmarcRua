@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>Soverin</org_name>
+    <email>dmarc-report@soverin.net</email>
+    <report_id>indigo-mailer5.com.1738972800.1739059200</report_id>
+    <date_range>
+      <begin>1738972800</begin>
+      <end>1739059200</end>
+    </date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>986d957cfaab4400beeefff7419cb120.com</domain>
+    <adkim>r</adkim>
+    <aspf>r</aspf>
+    <p>none</p>
+    <sp>none</sp>
+    <pct>100</pct>
+  </policy_published>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>1</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>fail</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>986d957cfaab4400beeefff7419cb120.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>986d957cfaab4400beeefff7419cb120.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>986d957cfaab4400beeefff7419cb120.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+<record>
+  <row>
+    <source_ip>127.0.0.1</source_ip>
+    <count>5</count>
+    <policy_evaluated>
+      <disposition>none</disposition>
+      <dkim>fail</dkim>
+      <spf>fail</spf>
+    </policy_evaluated>
+  </row>
+  <identifiers>
+    <header_from>986d957cfaab4400beeefff7419cb120.com</header_from>
+  </identifiers>
+  <auth_results>
+    <dkim>
+      <domain>986d957cfaab4400beeefff7419cb120.com</domain>
+      <result>pass</result>
+    </dkim>
+    <spf>
+      <domain>986d957cfaab4400beeefff7419cb120.com</domain>
+      <result>none</result>
+    </spf>
+  </auth_results>
+</record>
+</feedback>
