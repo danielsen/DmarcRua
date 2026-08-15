@@ -1,53 +1,90 @@
-﻿using System.Xml;
+﻿//
+// NamespaceIgnorantXmlReader.cs
+//
+// Author: Dan Nielsen (dnielsen@fastmail.fm)
+// Copyright (c) Dan Nielsen
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
-public class NamespaceIgnorantXmlReader : XmlReader
+using System.Xml;
+
+namespace DmarcRua;
+
+public class NamespaceIgnorantXmlReader(XmlReader reader) : XmlReader
 {
-    private readonly XmlReader _reader;
-
-    public NamespaceIgnorantXmlReader(XmlReader reader)
-    {
-        _reader = reader;
-    }
-
-    public override bool Read() => _reader.Read();
-    public override int AttributeCount => _reader.AttributeCount;
-    public override string BaseURI => _reader.BaseURI;
-    public override int Depth => _reader.Depth;
-    public override bool EOF => _reader.EOF;
-    public override bool HasValue => _reader.HasValue;
-    public override bool IsEmptyElement => _reader.IsEmptyElement;
-    public override string LocalName => _reader.LocalName;
+    public override bool Read() => reader.Read();
+    public override int AttributeCount => reader.AttributeCount;
+    public override string BaseURI => reader.BaseURI;
+    public override int Depth => reader.Depth;
+    public override bool EOF => reader.EOF;
+    public override bool HasValue => reader.HasValue;
+    public override bool IsEmptyElement => reader.IsEmptyElement;
+    public override string LocalName => reader.LocalName;
 
     // Always return an empty namespace.
     public override string NamespaceURI => string.Empty;
 
-    public override string Name => _reader.Name;
-    public override string Value => _reader.Value;
-    public override XmlNameTable NameTable => _reader.NameTable;
-    public override XmlNodeType NodeType => _reader.NodeType;
-    public override ReadState ReadState => _reader.ReadState;
-    public override bool CanResolveEntity => _reader.CanResolveEntity;
+    public override string Name => reader.Name;
+    public override string Value => reader.Value;
+    public override XmlNameTable NameTable => reader.NameTable;
+    public override XmlNodeType NodeType => reader.NodeType;
+    public override ReadState ReadState => reader.ReadState;
+    public override bool CanResolveEntity => reader.CanResolveEntity;
 
-    public override string Prefix => _reader.Prefix;
+    public override string Prefix => reader.Prefix;
 
-    public override void Close() => _reader.Close();
+    public override void Close() => reader.Close();
 
-    public override string GetAttribute(string name) => _reader.GetAttribute(name);
-    public override string GetAttribute(string name, string namespaceURI) => _reader.GetAttribute(name, namespaceURI);
-    public override string GetAttribute(int i) => _reader.GetAttribute(i);
+    public override string GetAttribute(string name) => reader
+        .GetAttribute(name);
 
-    public override bool MoveToAttribute(string name) => _reader.MoveToAttribute(name);
-    public override bool MoveToAttribute(string name, string ns) => _reader.MoveToAttribute(name, ns);
-    public override bool MoveToElement() => _reader.MoveToElement();
-    public override bool MoveToFirstAttribute() => _reader.MoveToFirstAttribute();
-    public override bool MoveToNextAttribute() => _reader.MoveToNextAttribute();
-    public override bool ReadAttributeValue() => _reader.ReadAttributeValue();
+    public override string GetAttribute(string name, string namespaceURI) =>
+        reader.GetAttribute(name, namespaceURI);
 
-    public override void Skip() => _reader.Skip();
-    public override void ResolveEntity() => _reader.ResolveEntity();
+    public override string GetAttribute(int i) => reader
+        .GetAttribute(i);
+
+    public override bool MoveToAttribute(string name) => reader
+        .MoveToAttribute(name);
+
+    public override bool MoveToAttribute(string name, string ns) => reader
+        .MoveToAttribute(name, ns);
+
+    public override bool MoveToElement() => reader
+        .MoveToElement();
+
+    public override bool MoveToFirstAttribute() => reader
+        .MoveToFirstAttribute();
+
+    public override bool MoveToNextAttribute() => reader
+        .MoveToNextAttribute();
+
+    public override bool ReadAttributeValue() => reader
+        .ReadAttributeValue();
+
+    public override void Skip() => reader.Skip();
+
+    public override void ResolveEntity() => reader
+        .ResolveEntity();
 
     public override string LookupNamespace(string prefix)
     {
-        return _reader.LookupNamespace(prefix);
+        return reader.LookupNamespace(prefix);
     }
 }

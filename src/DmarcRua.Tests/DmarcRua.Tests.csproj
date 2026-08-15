@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,12 +18,16 @@
     <EmbeddedResource Include="Unit\SampleReport.xml" />
     <None Remove="Unit\GoogleGenerated.xml" />
     <EmbeddedResource Include="Unit\GoogleGenerated.xml" />
+    <None Remove="Unit\SparseReport.xml" />
+    <EmbeddedResource Include="Unit\SparseReport.xml" />
+    <None Remove="Unit\MalformedReport.xml" />
+    <EmbeddedResource Include="Unit\MalformedReport.xml" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
-    <PackageReference Include="NUnit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.9.0" />
+    <PackageReference Include="NUnit" Version="4.6.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="6.2.0" />
   </ItemGroup>
 
   <ItemGroup>

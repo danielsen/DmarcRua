@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Authors>Dan Nielsen</Authors>
     <Company />
-    <Copyright>Copyright Dan Nielsen 2025</Copyright>
+    <Copyright>Copyright Dan Nielsen (dnielsen@fastmail.fm)</Copyright>
     <Description>DmarcRua is a .NET serializer for DMARC aggregate reports. Given 
 aggregate report XML, DmarcRua serializes the report into an object and
 provides some convenience functions for identifying and exploring DMARC
@@ -18,8 +18,9 @@ failures.</Description>
     <Title>DmarcRua</Title>
     <Summary>DmarcRua is a .NET serializer for DMARC aggregate reports.</Summary>
     <Product>DmarcRua</Product>
-    <Version>1.1.5</Version>
-    <PackageVersion>2.0.1</PackageVersion>
+    <Version>2.1.0</Version>
+    <PackageVersion>2.1.0</PackageVersion>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp1.1'">

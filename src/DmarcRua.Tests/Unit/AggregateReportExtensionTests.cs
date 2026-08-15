@@ -33,26 +33,37 @@ namespace DmarcRua.Tests.Unit;
 public class AggregateReportExtensionTests
 {
     private AggregateReport _ruaViaSampleReportXml;
+    private AggregateReport _ruaViaSparseReportXml;
 
     [SetUp]
     public void Setup()
     {
         var assembly = Assembly.GetExecutingAssembly();
-        var reportStream = assembly.GetManifestResourceStream("DmarcRua.Tests.Unit.SampleReport.xml");
+        var reportStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.SampleReport.xml");
 
         _ruaViaSampleReportXml = new AggregateReport(reportStream);
+
+        var sparseStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.SparseReport.xml");
+
+        _ruaViaSparseReportXml = new AggregateReport(sparseStream);
     }
 
     [Test]
     public void should_get_enumeration_of_failures()
     {
-        Assert.AreEqual(1, _ruaViaSampleReportXml.GetFailureRecords().Count());
+        Assert.AreEqual(
+            1,
+            _ruaViaSampleReportXml.GetFailureRecords().Count());
     }
 
     [Test]
     public void should_get_sum_of_all_failures()
     {
-        Assert.AreEqual(1, _ruaViaSampleReportXml.GetFailureCount());
+        Assert.AreEqual(
+            1,
+            _ruaViaSampleReportXml.GetFailureCount());
     }
 
     [Test]
@@ -62,9 +73,15 @@ public class AggregateReportExtensionTests
             .SummarizeFailuresByIpAddress()
             .ToList();
 
-        Assert.AreEqual(1, failureSummary.Count);
-        Assert.AreEqual("62.149.157.24", failureSummary.First().IpAddress.ToString());
-        Assert.AreEqual(1, failureSummary.First().Count);
+        Assert.AreEqual(
+            1,
+            failureSummary.Count);
+        Assert.AreEqual(
+            "62.149.157.24",
+            failureSummary.First().IpAddress.ToString());
+        Assert.AreEqual(
+            1,
+            failureSummary.First().Count);
     }
 
     [Test]
@@ -74,9 +91,15 @@ public class AggregateReportExtensionTests
             .SummarizeFailuresByHeaderFrom()
             .ToList();
 
-        Assert.AreEqual(1, failureSummary.Count);
-        Assert.AreEqual("mail6.acme-company.net", failureSummary.First().HeaderFrom);
-        Assert.AreEqual(1, failureSummary.First().Count);
+        Assert.AreEqual(
+            1,
+            failureSummary.Count);
+        Assert.AreEqual(
+            "mail6.acme-company.net",
+            failureSummary.First().HeaderFrom);
+        Assert.AreEqual(
+            1,
+            failureSummary.First().Count);
     }
 
     [Test]
@@ -84,16 +107,68 @@ public class AggregateReportExtensionTests
     {
         var ip = IPAddress.Parse("62.149.157.24");
 
-        var failureSummary = _ruaViaSampleReportXml.GetFailedRecordsByIpAddress(ip);
+        var failureSummary = _ruaViaSampleReportXml
+            .GetFailedRecordsByIpAddress(ip);
 
-        Assert.AreEqual(1, failureSummary.Count());
+        Assert.AreEqual(
+            1,
+            failureSummary.Count());
     }
 
     [Test]
     public void should_target_failures_by_from_header()
     {
-        var failureSummary = _ruaViaSampleReportXml.GetFailedRecordsByFromHeader("mail6.acme-company.net");
+        var failureSummary = _ruaViaSampleReportXml
+            .GetFailedRecordsByFromHeader("mail6.acme-company.net");
 
-        Assert.AreEqual(1, failureSummary.Count());
+        Assert.AreEqual(
+            1,
+            failureSummary.Count());
+    }
+
+    [Test]
+    public void should_get_failures_when_record_lacks_policy_evaluated()
+    {
+        var failures = _ruaViaSparseReportXml
+            .GetFailureRecords()
+            .ToList();
+
+        Assert.AreEqual(
+            1,
+            failures.Count);
+    }
+
+    [Test]
+    public void should_summarize_by_header_from_when_identifiers_missing()
+    {
+        var failureSummary = _ruaViaSparseReportXml
+            .SummarizeFailuresByHeaderFrom()
+            .ToList();
+
+        Assert.AreEqual(
+            1,
+            failureSummary.Count);
+    }
+
+    [Test]
+    public void should_target_failures_by_from_header_when_identifiers_missing()
+    {
+        var failureSummary = _ruaViaSparseReportXml
+            .GetFailedRecordsByFromHeader("mail6.acme-company.net");
+
+        Assert.AreEqual(
+            0,
+            failureSummary.Count());
+    }
+
+    [Test]
+    public void should_get_requested_reporting_policy_when_fo_missing()
+    {
+        var policy = _ruaViaSparseReportXml
+            .GetRequestedReportingPolicy();
+
+        Assert.AreEqual(
+            RequestedReportingPolicy.All,
+            policy);
     }
 }

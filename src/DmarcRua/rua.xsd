@@ -20,7 +20,7 @@
             <xs:element name="error" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
         </xs:choice>
     </xs:complexType>
-    
+
     <!-- The methods used to discovery the policy used during evaluation.
          Available values are "psl" and "treewalk"
     -->
@@ -51,6 +51,25 @@
     <xs:simpleType name="DispositionType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="none"/>
+            <xs:enumeration value="quarantine"/>
+            <xs:enumeration value="reject"/>
+            <xs:enumeration value="nil"/>
+            <xs:enumeration value=""/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- policy_evaluated/disposition type as specified in
+         https://www.rfc-editor.org/rfc/rfc9990.html#appendix-A -->
+    <!-- ==============================================================
+    2026-08-15
+        Added this type to account for the split in <row> disposition
+        from the published policy (DNS) disposition. "pass" is an
+        expected value. "nil" and "" remain to preserve compatibility.
+    =============================================================== -->
+    <xs:simpleType name="ActionDispositionType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="pass"/>
             <xs:enumeration value="quarantine"/>
             <xs:enumeration value="reject"/>
             <xs:enumeration value="nil"/>
@@ -309,8 +328,8 @@
         <xs:sequence>
             <xs:element name="row" type="RowType"/>
             <xs:choice minOccurs="0">
-              <xs:element name="identifiers" type="IdentifierType"/>
-              <xs:element name="identities" type="IdentifierType"/>
+                <xs:element name="identifiers" type="IdentifierType"/>
+                <xs:element name="identities" type="IdentifierType"/>
             </xs:choice>
             <xs:element name="auth_results" type="AuthResultType"/>
             <!-- row level extensions -->

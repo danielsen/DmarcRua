@@ -22,7 +22,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using System.Reflection;
+using System.Xml;
 using NUnit.Framework;
 
 namespace DmarcRua.Tests.Unit;
@@ -34,37 +36,121 @@ public class AggregateReportTests
     public void should_validate_rua_report()
     {
         var assembly = Assembly.GetExecutingAssembly();
-        var reportStream = assembly.GetManifestResourceStream("DmarcRua.Tests.Unit.SampleReport.xml");
+        var reportStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.SampleReport.xml");
 
         var aggregate = new AggregateReport();
         aggregate.ReadAggregateReport(reportStream);
 
-        Assert.AreEqual(true, aggregate.ValidReport);
-        Assert.AreEqual(aggregate.Feedback.PolicyPublished.Domain, "acme-company.net");
-        Assert.AreEqual(aggregate.Feedback.PolicyPublished.Adkim, AlignmentType.Relaxed);
+        Assert.AreEqual(
+            true,
+            aggregate.ValidReport);
+        Assert.AreEqual(
+            aggregate.Feedback.PolicyPublished.Domain,
+            "acme-company.net");
+        Assert.AreEqual(
+            aggregate.Feedback.PolicyPublished.Adkim,
+            AlignmentType.Relaxed);
     }
 
     [Test]
     public void should_catch_invalid_report()
     {
         var assembly = Assembly.GetExecutingAssembly();
-        var reportStream = assembly.GetManifestResourceStream("DmarcRua.Tests.Unit.InvalidReport.xml");
+        var reportStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.InvalidReport.xml");
 
         var aggregate = new AggregateReport();
         aggregate.ReadAggregateReport(reportStream);
 
-        Assert.AreEqual(false, aggregate.ValidReport);
+        Assert.AreEqual(
+            false,
+            aggregate.ValidReport);
+    }
+
+    [Test]
+    public void should_reset_state_between_reads()
+    {
+        var assembly = Assembly.GetExecutingAssembly();
+        var aggregate = new AggregateReport();
+
+        var invalidStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.InvalidReport.xml");
+        aggregate.ReadAggregateReport(invalidStream);
+
+        Assert.AreEqual(
+            false,
+            aggregate.ValidReport);
+
+        var validStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.SampleReport.xml");
+        aggregate.ReadAggregateReport(validStream);
+
+        Assert.AreEqual(
+            true,
+            aggregate.ValidReport);
+        Assert.AreEqual(
+            false,
+            aggregate.HasErrors);
+    }
+
+    [Test]
+    public void should_throw_on_malformed_xml()
+    {
+        var assembly = Assembly.GetExecutingAssembly();
+        var reportStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.MalformedReport.xml");
+
+        var aggregate = new AggregateReport();
+
+        var ex = Assert.Throws<InvalidOperationException>(
+            () => aggregate.ReadAggregateReport(reportStream));
+        Assert.IsInstanceOf<XmlException>(ex.InnerException);
+    }
+
+    [Test]
+    public void should_return_false_for_malformed_xml()
+    {
+        var assembly = Assembly.GetExecutingAssembly();
+        var reportStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.MalformedReport.xml");
+
+        var aggregate = new AggregateReport();
+
+        Assert.AreEqual(
+            false,
+            aggregate.TryReadAggregateReport(reportStream));
+    }
+
+    [Test]
+    public void should_return_true_for_valid_report_via_try()
+    {
+        var assembly = Assembly.GetExecutingAssembly();
+        var reportStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.SampleReport.xml");
+
+        var aggregate = new AggregateReport();
+
+        Assert.AreEqual(
+            true,
+            aggregate.TryReadAggregateReport(reportStream));
+        Assert.AreEqual(
+            "acme-company.net",
+            aggregate.Feedback.PolicyPublished.Domain);
     }
 
     [Test]
     public void should_handle_ipv6_addresses_correctly()
     {
         var assembly = Assembly.GetExecutingAssembly();
-        var reportStream = assembly.GetManifestResourceStream("DmarcRua.Tests.Unit.GoogleGenerated.xml");
+        var reportStream = assembly.GetManifestResourceStream(
+            "DmarcRua.Tests.Unit.GoogleGenerated.xml");
 
         var aggregate = new AggregateReport();
         aggregate.ReadAggregateReport(reportStream);
 
-        Assert.AreEqual(true, aggregate.ValidReport);
+        Assert.AreEqual(
+            true,
+            aggregate.ValidReport);
     }
 }

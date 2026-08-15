@@ -22,6 +22,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,137 +31,192 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace DmarcRua
+namespace DmarcRua;
+
+/// <summary>
+/// A DMARC aggregate report 
+/// </summary>
+public class AggregateReport
 {
     /// <summary>
-    /// A DMARC aggregate report 
+    /// Embedded schema use for validation of supplied reports.
     /// </summary>
-    public class AggregateReport
+    private const string SchemaName = "DmarcRua.rua.xsd";
+
+    /// <summary>
+    /// Indicates if the serialized report has XML validation warnings or errors.
+    /// </summary>
+    public bool HasWarningsOrErrors;
+
+    /// <summary>
+    /// Indicates if the serialized report is valid against <see cref="rua.xsd"/>
+    /// </summary>
+    public bool ValidReport = true;
+
+    /// <summary>
+    /// Gets the serialized <see cref="Feedback"/> report.
+    /// </summary>
+    public Feedback Feedback { get; private set; }
+
+    /// <summary>
+    /// XmlReader settings.
+    /// </summary>
+    private XmlReaderSettings _xmlReaderSettings;
+
+    /// <summary>
+    /// List of validation events raised during serialization.
+    /// </summary>
+    public IList<ValidationEventArgs> ValidationEvents { get; }
+
+    /// <summary>
+    /// Constructor.
+    /// </summary>
+    public AggregateReport()
     {
-        /// <summary>
-        /// Embedded schema use for validation of supplied reports.
-        /// </summary>
-        private const string SchemaName = "DmarcRua.rua.xsd";
+        ConfigureValidation();
+        ValidationEvents = new List<ValidationEventArgs>();
+    }
 
-        /// <summary>
-        /// Indicates if the serialized report has an XML validation warnings or errors.
-        /// </summary>
-        public bool HasWarningsOrErrors;
+    /// <summary>
+    /// Constructor with report stream.
+    /// </summary>
+    /// <param name="ruaStream">A stream containing the RUA report to serialize.</param>
+    public AggregateReport(Stream ruaStream)
+    {
+        ConfigureValidation();
+        ValidationEvents = new List<ValidationEventArgs>();
+        ReadAggregateReport(ruaStream);
+    }
 
-        /// <summary>
-        /// Indicates if the serialized report is valid against <see cref="rua.xsd"/>
-        /// </summary>
-        public bool ValidReport = true;
-
-        /// <summary>
-        /// Gets the serialized <see cref="Feedback"/> report.
-        /// </summary>
-        public Feedback Feedback { get; internal set; }
-
-        /// <summary>
-        /// XmlReader settings.
-        /// </summary>
-        private XmlReaderSettings _xmlReaderSettings;
-
-        /// <summary>
-        /// List of validation events raised during serialization.
-        /// </summary>
-        public IList<ValidationEventArgs> ValidationEvents { get; private set; }
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        public AggregateReport()
+    /// <summary>
+    /// Configures report XML schema validation.
+    /// </summary>
+    private void ConfigureValidation()
+    {
+        // Settings per https://msdn.microsoft.com/en-us/magazine/ee335713.aspx
+        _xmlReaderSettings = new XmlReaderSettings
         {
-            ConfigureValidation();
-            ValidationEvents = new List<ValidationEventArgs>();
+            ValidationType = ValidationType.Schema,
+            ValidationFlags =
+                XmlSchemaValidationFlags.ReportValidationWarnings,
+            XmlResolver = null,
+            DtdProcessing = DtdProcessing.Prohibit
+        };
+
+        using (var schemaStream = Assembly.GetExecutingAssembly()
+                   .GetManifestResourceStream(SchemaName))
+        {
+            if (schemaStream == null)
+            {
+                throw new InvalidOperationException(
+                    $"Schema {SchemaName} not found."
+                );
+            }
+
+            using (var schemaReader = XmlReader.Create(schemaStream))
+            {
+                _xmlReaderSettings.Schemas.Add(
+                    null,
+                    schemaReader);
+            }
         }
 
-        /// <summary>
-        /// Constructor with report stream.
-        /// </summary>
-        /// <param name="ruaStream">A stream containing the RUA report to serialize.</param>
-        public AggregateReport(Stream ruaStream)
+        _xmlReaderSettings.ValidationEventHandler +=
+            ValidationEventCallback;
+    }
+
+    /// <summary>
+    /// Handler for validation events.
+    /// </summary>
+    /// <param name="sender">Validator sending the events.</param>
+    /// <param name="args">Event arguments.</param>
+    private void ValidationEventCallback(object sender,
+        ValidationEventArgs args)
+    {
+        ValidationEvents.Add(args);
+        HasWarningsOrErrors = true;
+
+        if (args.Severity == XmlSeverityType.Error)
+            ValidReport = false;
+    }
+
+    /// <summary>
+    /// Indicates if this report has any warnings from validation.
+    /// </summary>
+    public bool HasWarnings => ValidationEvents
+        .Any(x => x.Severity == XmlSeverityType.Warning);
+
+    /// <summary>
+    /// Indicates if this report has errors from validation.
+    /// </summary>
+    public bool HasErrors => ValidationEvents
+        .Any(x => x.Severity == XmlSeverityType.Error);
+
+    /// <summary>
+    /// Gets a validation error enumerable.
+    /// </summary>
+    public IEnumerable<ValidationEventArgs> Errors => ValidationEvents
+        .Where(x => x.Severity == XmlSeverityType.Error);
+
+    /// <summary>
+    /// Gets a validation warning enumerable.
+    /// </summary>
+    public IEnumerable<ValidationEventArgs> Warnings => ValidationEvents
+        .Where(x => x.Severity == XmlSeverityType.Warning);
+
+    /// <summary>
+    /// Reads a report from a stream, sets the results to <see cref="Feedback"/>
+    /// </summary>
+    /// <param name="ruaStream">A stream containing the RUA report to serialize.</param>
+    /// <remarks>
+    /// Schema-invalid but well-formed reports are read without throwing;
+    /// inspect <see cref="ValidReport"/> and <see cref="Errors"/> for those.
+    /// Malformed (not well-formed) XML throws. Use
+    /// <see cref="TryReadAggregateReport"/> to read without throwing.
+    /// </remarks>
+    /// <exception cref="InvalidOperationException">
+    /// The report could not be deserialized, e.g. the stream is not
+    /// well-formed XML (with an inner <see cref="XmlException"/>).
+    /// </exception>
+    public void ReadAggregateReport(Stream ruaStream)
+    {
+        ValidationEvents.Clear();
+        HasWarningsOrErrors = false;
+        ValidReport = true;
+
+        using (XmlReader baseReader = XmlReader.Create(
+                   ruaStream,
+                   _xmlReaderSettings))
         {
-            ConfigureValidation();
-            ValidationEvents = new List<ValidationEventArgs>();
+            using (XmlReader reader =
+                   new NamespaceIgnorantXmlReader(baseReader))
+            {
+                var serializer = new XmlSerializer(typeof(Feedback));
+                Feedback = (Feedback)serializer.Deserialize(reader);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Reads a report from a stream without throwing on malformed XML.
+    /// </summary>
+    /// <param name="ruaStream">A stream containing the RUA report to serialize.</param>
+    /// <returns>
+    /// <c>true</c> if the report was read; <c>false</c> if the stream could
+    /// not be parsed. A <c>true</c> result does not imply the report is
+    /// schema-valid; check <see cref="ValidReport"/> for that.
+    /// </returns>
+    public bool TryReadAggregateReport(Stream ruaStream)
+    {
+        try
+        {
             ReadAggregateReport(ruaStream);
+            return true;
         }
-
-        /// <summary>
-        /// Configures report XML schema validation.
-        /// </summary>
-        private void ConfigureValidation()
+        catch (Exception ex)
+            when (ex is XmlException || ex is InvalidOperationException)
         {
-            // Settings per https://msdn.microsoft.com/en-us/magazine/ee335713.aspx
-            _xmlReaderSettings = new XmlReaderSettings
-            {
-                ValidationType = ValidationType.Schema,
-                ValidationFlags = XmlSchemaValidationFlags.ReportValidationWarnings,
-                XmlResolver = null,
-                DtdProcessing = DtdProcessing.Prohibit
-            };
-
-            using (var schemaStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SchemaName))
-            {
-                using (var schemaReader = XmlReader.Create(schemaStream))
-                {
-                    _xmlReaderSettings.Schemas.Add(null, schemaReader);
-                }
-            }
-            _xmlReaderSettings.ValidationEventHandler += ValidationEventCallback; 
-        }
-
-        /// <summary>
-        /// Handler for validation events.
-        /// </summary>
-        /// <param name="sender">Validator sending the events.</param>
-        /// <param name="args">Event arguments.</param>
-        private void ValidationEventCallback(object sender, ValidationEventArgs args)
-        {
-            ValidationEvents.Add(args);
-            HasWarningsOrErrors = true;
-
-            if (args.Severity == XmlSeverityType.Error)
-                ValidReport = false;
-        }
-
-        /// <summary>
-        /// Indicates if this report has any warnings from validation.
-        /// </summary>
-        public bool HasWarnings => ValidationEvents.Any(x => x.Severity == XmlSeverityType.Warning);
-
-        /// <summary>
-        /// Indicates if this report has errors from validation.
-        /// </summary>
-        public bool HasErrors => ValidationEvents.Any(x => x.Severity == XmlSeverityType.Error);
-
-        /// <summary>
-        /// Gets a validation error enumerable.
-        /// </summary>
-        public IEnumerable<ValidationEventArgs> Errors =>
-            ValidationEvents.Where(x => x.Severity == XmlSeverityType.Error);
-
-        /// <summary>
-        /// Gets a validation warning enumerable.
-        /// </summary>
-        public IEnumerable<ValidationEventArgs> Warnings =>
-            ValidationEvents.Where(x => x.Severity == XmlSeverityType.Warning);
-
-        /// <summary>
-        /// Reads a report from a stream, sets the results to <see cref="Feedback"/>
-        /// </summary>
-        /// <param name="ruaStream">A stream containing the RUA report to serialize.</param>
-        public void ReadAggregateReport(Stream ruaStream)
-        {
-            using (XmlReader baseReader = XmlReader.Create(ruaStream, _xmlReaderSettings))
-            {
-                using (XmlReader reader = new NamespaceIgnorantXmlReader(baseReader))
-                {
-                    var serializer = new XmlSerializer(typeof(Feedback));
-                    Feedback = (Feedback)serializer.Deserialize(reader);
-                }
-            }
+            return false;
         }
     }
 }
