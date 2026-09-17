@@ -186,7 +186,7 @@
     <!-- Taking into account everything else in the record, the results of applying DMARC. -->
     <xs:complexType name="PolicyEvaluatedType">
         <xs:sequence>
-            <xs:element name="disposition" type="DispositionType"/>
+            <xs:element name="disposition" type="ActionDispositionType"/>
             <xs:element name="dkim" type="DMARCResultType"/>
             <xs:element name="spf" type="DMARCResultType"/>
             <xs:element name="reason" type="PolicyOverrideReason" minOccurs="0" maxOccurs="unbounded"/>

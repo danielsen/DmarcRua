@@ -18,8 +18,8 @@ failures.</Description>
     <Title>DmarcRua</Title>
     <Summary>DmarcRua is a .NET serializer for DMARC aggregate reports.</Summary>
     <Product>DmarcRua</Product>
-    <Version>2.1.0</Version>
-    <PackageVersion>2.1.0</PackageVersion>
+    <Version>2.1.1</Version>
+    <PackageVersion>2.1.1</PackageVersion>
     <LangVersion>default</LangVersion>
   </PropertyGroup>
 

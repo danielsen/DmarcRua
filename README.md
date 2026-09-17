@@ -14,7 +14,7 @@ failures. `DmarcRua` supports both v1 and v2 aggregate reports.
 
 ### Packages
 
-Current Version: `2.1.0`
+Current Version: `2.1.1`
 
 Target Framework: `netstandard2.0`
 
